@@ -29,22 +29,30 @@
     <div class="output" id="translatedText"></div>
     <div class="output" id="insultText"></div>
 
-    <script>
+<script>
         function translateToYusufish() {
+            const words = {
+                "i": "wiwiwi",
+                "a": "lariaaa",
+                "e": "liar",
+                "u": "MDR",
+                "o": "KAIR",
+                "p": "LAIR",
+                "y": "yebby"
+                "k": "Wiw"
+                "l": "AKRIRIRIRIRI"
+                // add more words here as necessary for translation
+            };
+            
             let text = document.getElementById("inputText").value;
-            let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I');
 
-            // List of Yusufish words
-            const yusufishWords = ["KAIR", "LAIR", "LIARRR", "LIARIRI", "KAIRIRI", "KARRI", "WIW", "WIWIWIW", "YEB", "YEBBY", "LAIRRRIIIIII", "LIARRRRR", "MDRRRR", "KAIRIRLARIA"];
-
-            // Randomly select a Yusufish word from the list
-            let randomWord = yusufishWords[Math.floor(Math.random() * yusufishWords.length)];
-
-            // Add the randomly chosen Yusufish word and the "WIWIWIWI LARIAA" part
-            yusufish += " " + randomWord + " WIWIWIWI LARIAA";
+            // Replace each word in the input text with its Yusufish equivalent
+            let translatedText = text.split(' ').map(word => {
+                return word.split('').map(char => words[char.toLowerCase()] || char).join('');
+            }).join(' ');
 
             // Display the translated text
-            document.getElementById("translatedText").innerText = "Yusufish: " + yusufish;
+            document.getElementById("translatedText").innerText = "Yusufish: " + translatedText;
         }
 
         function generateInsult() {
