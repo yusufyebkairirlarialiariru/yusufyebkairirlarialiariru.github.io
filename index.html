@@ -32,7 +32,18 @@
     <script>
         function translateToYusufish() {
             let text = document.getElementById("inputText").value;
-            let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I') + " WIWIWIWI LARIAA";
+            let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I');
+
+            // List of Yusufish words
+            const yusufishWords = ["KAIR", "LAIR", "LIARRR", "LIARIRI", "KAIRIRI", "KARRI", "WIW", "WIWIWIW", "YEB", "YEBBY", "LAIRRRIIIIII", "LIARRRRR", "MDRRRR", "KAIRIRLARIA"];
+
+            // Randomly select a Yusufish word from the list
+            let randomWord = yusufishWords[Math.floor(Math.random() * yusufishWords.length)];
+
+            // Add the randomly chosen Yusufish word and the "WIWIWIWI LARIAA" part
+            yusufish += " " + randomWord + " WIWIWIWI LARIAA";
+
+            // Display the translated text
             document.getElementById("translatedText").innerText = "Yusufish: " + yusufish;
         }
 
