@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusufish Translator & Insult Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+        }
+        textarea, button {
+            margin-top: 10px;
+            padding: 10px;
+        }
+        .output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Yusufish Translator & Insult Generator</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text..."></textarea><br>
+    <button onclick="translateToYusufish()">Translate to Yusufish</button>
+    <button onclick="generateInsult()">Get Random Insult</button>
+    <div class="output" id="translatedText"></div>
+    <div class="output" id="insultText"></div>
+
+    <script>
+        function translateToYusufish() {
+            let text = document.getElementById("inputText").value;
+            let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I') + " WIWIWIWI LARIAA";
+            document.getElementById("translatedText").innerText = "Yusufish: " + yusufish;
+        }
+
+        function generateInsult() {
+            let names = ["Aimz", "Bendy", "Bot", "Lite", "Mango", "Tanat736", "TB", "DP", "Yusuf", "Fynn"];
+            let insults = [
+                "can't stop talking about Geometry Dash 💀",
+                "screams 'LIAR' at his screen like a maniac 😭",
+                "fumbles every game like a true bot 🤡",
+                "thinks he's a mod but he's just a clown 🎪",
+                "eats more burgers than a whole planet 🍔🌍",
+                "is racist AND braindead, a powerful combo 🚮",
+                "is British AND a catgirl simp, double L 🇬🇧🐱",
+                "is literally the definition of Discord creep 🚨",
+                "plays Jailbreak like it's a full-time job 🚔",
+                "is down bad for egirls on Discord 💀",
+                "has more bans than actual W's 📉",
+                "talks like an NPC every single day 🤖",
+                "his entire personality is like denz so just 'mod abuse' 🚓",
+                "would sell his soul for Nitro and still be broke 💸",
+                "loves to argue but never wins a debate 😭",
+                "has more alts than real-life friends 👥",
+                "probably showers once a month if lucky 🚿",
+                "his only girlfriend is in a 2012 anime 💀",
+                "has spent more money on Robux than on food 🍕",
+                "his humor is stuck in 2016 and it's painful 😂",
+                "if cringe had a face, it would be him 😬",
+                "tries to roast others but only burns himself 🔥",
+                "thinks he has a low taper fade 😭",
+                "thinks he's Sigma but acts like a Discord kitten 🐱"
+            ];
+            let randomName = names[Math.floor(Math.random() * names.length)];
+            let randomInsult = insults[Math.floor(Math.random() * insults.length)];
+            document.getElementById("insultText").innerText = randomName + " " + randomInsult;
+        }
+    </script>
+</body>
+</html>
