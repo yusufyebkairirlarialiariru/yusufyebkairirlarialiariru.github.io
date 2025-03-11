@@ -30,26 +30,11 @@
     <div class="output" id="insultText"></div>
 
 <script>
-    function translateToYusufish() {
-        let text = document.getElementById("inputText").value;
-        
-        // List of Yusufish words for more variety
-        let yusufishWords = ["akiriririri", "kairirir", "KAIR", "wiwiwi", "wiw", "Yebby", "LIAR", "LARI", "KAIRRRR", "KARRI"];
-        
-        // Generate a random Yusufish phrase with 3-8 words
-        let yusufishSentence = "";
-        let numWords = Math.floor(Math.random() * 6) + 3;
-        for (let i = 0; i < numWords; i++) {
-            yusufishSentence += yusufishWords[Math.floor(Math.random() * yusufishWords.length)] + " ";
+        function translateToYusufish() {
+            let text = document.getElementById("inputText").value;
+            let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I') + " WIWIWIWI LARIAA";
+            document.getElementById("translatedText").innerText = "Yusufish: " + yusufish;
         }
-        
-        // Replace vowels in input text and append Yusufish phrase
-        let yusufish = text.replace(/[aeiou]/gi, 'i').replace(/[AEIOU]/gi, 'I') + " " + yusufishSentence.trim();
-        
-        // Display the translation
-        document.getElementById("translatedText").innerText = "Yusufish: " + yusufish;
-    }
-</script>
         function generateInsult() {
             let names = ["Aimz", "Bendy", "Bot", "¨Dev_aquizy", "Mango", "Tanat736", "TB", "DP", "Yusuf", "Finnxv", "Dark 'Cat-Ears Riyuroxian", "abcdefas", "TannerFishies", "Ahmed Mohamed", "Doc Wyatt", "Cizgi Ustasi", "Agent Walker", "Fynn"];
             let insults = [
