@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>finnxv being haram - yusuf</title>
+    <title>Image List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -17,12 +17,16 @@
             align-items: center;
             margin: 0;
         }
+        @keyframes rgbText {
+            0% { color: red; }
+            33% { color: green; }
+            66% { color: blue; }
+            100% { color: red; }
+        }
         h1 {
             font-size: 2em;
             font-weight: bold;
-            background: linear-gradient(90deg, red, green, blue);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            animation: rgbText 2s infinite linear;
         }
         .image-container {
             display: flex;
