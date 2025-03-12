@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
+    <title>Image List</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,26 +12,33 @@
             color: white;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             margin: 0;
         }
-        button {
-            padding: 15px 30px;
-            font-size: 18px;
-            cursor: pointer;
-            background-color: #444;
-            color: white;
-            border: none;
-            border-radius: 5px;
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            max-width: 80%;
         }
-        button:hover {
-            background-color: #555;
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
-    <button onclick="window.location.href='translator.html'">Yusufish Translator</button>
-    <button onclick="window.location.href='finnxv.html'">Finnxv being a idiot!</button>
+    <div class="image-container">
+        <img src="finnxvph.png" alt="HARAM">
+        <img src="finnxvhonest.png" alt="HARAM">
+        <img src="finnxvc8m.png" alt="HARAM">
+        <img src="finnxvsometimes.png" alt="HARAM">
+        <img src="finnxvwannasee.png" alt="HARAM">
+        <img src="finnxvtodark.png" alt="HARAM">
+    </div>
 </body>
 </html>
