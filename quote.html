@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusufish Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #222;
+            color: white;
+            padding: 50px;
+        }
+        #quote {
+            font-size: 24px;
+            margin: 20px;
+            padding: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            display: inline-block;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #ff4500;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #ff5733;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Yusufish Quote Generator</h1>
+    <div id="quote">Click the button for a wise Yusufish quote.</div>
+    <br>
+    <button onclick="generateQuote()">Get Quote</button>
+
+    <script>
+        const quotes = [
+            "KAIRRRR Lari Lari, wiwiwiwi KAIRIRIR... Yebby who speaks lies, drowns in LARIAAAAAA.",
+            "MDRRR WIW WIWIWI, kairiririr lari... the fool eats rocks while the wise eat KAIR.",
+            "Lari Lariaaaa karririr, the Yebby stumbles, but the KAIRRR rises.",
+            "WIWIWIWIWIWI LARI LARIIII, the path of a wise man is full of KAIR and WIW.",
+            "KAIR KAIRR KAIRRRR LARIAAAA, MDRRR will always win against Yebby.",
+            "LARI LARIRIRIRIRIR, the one who forgets KAIR becomes a fool.",
+            "KARRI LARIAAAAAA YEBBY WIWIWI, the strong embrace KAIR, the weak embrace LIAR.",
+            "KAIR KAIR KAIR, the MDR knows when to silence the WIWIWI.",
+            "YEBBY KAIRIRIRIR LARIAA, wisdom is knowing when to scream MDRRR.",
+            "LARIAAA LARI WIWIWIWI, the one who follows KAIR will never be Yebby.",
+            "KAIRIRIRIR WIWIWIWI KARRI, the wise man laughs while the fool cries LARI.",
+            "WIW WIWIWIWIWI KARRR, when KAIR speaks, the MDR listens.",
+            "MDRRRR KAIR LARIAAAA, the fool stares while the wise collect KARRI.",
+            "KAIRIRIR LARIA WIWIWI, a Yebby does not understand the ways of MDR.",
+            "YEBBY KAIR KAIR KAIRRR, the MDR sees through all the LIARs.",
+            "KAIR KAIR WIWIWI, wisdom comes to those who scream MDRRR.",
+            "KARRIRIRIRI LARIAAAA WIWIWI, the MDR knows all, the LIAR knows nothing.",
+            "KAIR KAIR KAIR KAIR WIWIWI, those who do not understand KAIR are doomed to Yebby.",
+            "LARIAAA MDRRRR WIWIWI, the true path is paved with KAIR and KARRI.",
+            "WIW WIW WIW KAIRR KAIR, MDR guides the lost through LARIAAAA.",
+            "KAIRRRR LARIA WIWIWIWI, a MDR never forgets the way of KAIR.",
+            "YEBBY WIWIWI KAIRRR, wisdom is knowing when to scream and when to laugh.",
+            "LARIAA KAIR KAIR KAIR WIWIWI, the MDR is never fooled by the LIAR.",
+            "KAIRIRIRIR KAIR WIWIWIWI, MDR speaks, Yebby listens.",
+            "LARIAAA MDRRR WIWIWI, the wise walk the path of KAIR.",
+            "KAIR KAIR WIWIWI KARRI, MDR sees through the fog of LIARs.",
+            "WIWIWIWI KAIR LARIAAAA, those who embrace KAIR will never be fools.",
+            "LARIAAA KAIR KAIR WIWIWI, the path of MDR is always KAIRRR.",
+            "MDRRR WIWIWI KAIR KAIR, never trust a Yebby with LARIAAAA.",
+            "KAIRRR WIWIWI KARRI LARIAAAA, the wise ones see through the tricks of the LIAR.",
+            "YEBBY KAIRRRR MDRRR WIWIWI, in the darkness, only KAIR shines bright.",
+            "WIWIWIWI KAIR KAIR KARRI, MDR laughs while the LIAR cries.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR knows the way, Yebby does not.",
+            "KAIR WIWIWI LARIAAAA KARRI, the fool runs while the wise stay and scream MDR.",
+            "KAIRRR KAIR WIWIWI, MDR holds the key to LARIAAAA.",
+            "LARIAAAA KAIR KAIR KAIR WIWIWI, the wise man follows MDR and ignores Yebby.",
+            "KAIR KAIRRRR WIWIWI LARIAAAA, MDR is the path, LIAR is the downfall.",
+            "YEBBY WIWIWIWI KAIRRR, LARIAAAA is only for the weak.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR watches as the Yebby stumbles.",
+            "MDRRR WIWIWI KAIR KAIR, the Yebby laughs but the MDR knows the truth.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR is wise, Yebby is not.",
+            "YEBBY WIWIWI KAIR KAIR, MDR leads the way, LIAR falls behind.",
+            "KAIRRR WIWIWI LARIAAAA KARRI, MDR never forgets, Yebby always does.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR stands tall, LIAR crumbles.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR speaks wisdom, Yebby speaks nonsense.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR is the truth, LIAR is the deception.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR is the light, LIAR is the darkness.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR stands proud, Yebby hides in shame.",
+            "KAIR WIWIWI KARRI WIWIWI, MDR watches as Yebby drowns in LARIAAAA.",
+            "LARIAAAA KAIR KAIR KAIR KAIRRRR, the MDR knows what the LIAR hides.",
+            "WIWIWI KARRIRIRIRIR LARIAAAA, the foolish Yebby forgets the path of KAIR.",
+            "KAIR KAIR KAIR LARIAAAA, MDR never trusts a Yebby’s words.",
+            "MDRRRR WIWIWI KARRI LARIAAAA, those who forget KAIR will walk the path of LIAR.",
+            "KAIR WIWIWI LARIAAAA KARRIRIRIR, MDR understands what Yebby never will.",
+            "KAIR KAIR WIWIWI KARRI, those who embrace KAIR know the way of MDR.",
+            "WIWIWIWIWI LARIAAAA KAIR KAIR, the LIAR hides in darkness, MDR walks in KAIR.",
+            "KAIRRRR WIWIWI KAIR KAIR, MDR laughs as Yebby cries.",
+            "YEBBY WIWIWI KAIRRRR LARIAAAA, the fool denies KAIR and falls into LARIA.",
+            "KAIR WIWIWI KAIRIRIRIR LARIAAAA, MDR is the truth, Yebby is the failure.",
+            "KAIR KAIR KARRI LARIAAAA, MDR has spoken, Yebby has lost.",
+            "LARIAAAA KAIR WIWIWI KARRR, MDR speaks wisdom while the LIAR screams nonsense.",
+            "KAIR WIWIWI KARRI LARIAAAA, the MDR sees all, the Yebby sees nothing.",
+            "KAIR KAIRRR WIWIWI, MDR is strong, Yebby is weak.",
+            "LARIAAAA KAIR KAIR WIWIWI, the fool stumbles, but the MDR walks on KAIR.",
+            "KAIR WIWIWI KAIRIRIRIR LARIAAAA, MDR understands the secrets of the universe.",
+            "KAIR KAIR KAIR WIWIWI, the MDR holds the truth while the Yebby cries.",
+            "KAIR WIWIWI KARRI LARIAAAA, MDR stands in KAIR, Yebby drowns in LARIA.",
+            "WIWIWIWI KAIR KAIR KAIRRR, those who betray KAIR will be lost forever.",
+            "KAIR WIWIWI LARIAAAA KARRR, MDR speaks only the truth, while the LIAR hides.",
+            "KAIR KAIR WIWIWI KARRI, the MDR holds the key to KAIRRRR.",
+            "KAIR WIWIWI WIWIWI, MDR sees through the lies of the Yebby.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR walks the path of KAIR and leaves the LIAR behind.",
+            "KAIR WIWIWI KARRI LARIAAAA, MDR watches as Yebby falls into darkness.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR is wise, Yebby is a fool.",
+            "KAIR KAIR KARRI LARIAAAA, MDR always knows when a Yebby lies.",
+            "KAIR WIWIWI WIWIWI, the MDR never falls for the tricks of the LIAR.",
+            "KAIR WIWIWI KARRI LARIAAAA, the path of KAIR is only for the worthy.",
+            "KAIR WIWIWI KARRIRIRIR, those who follow KAIR will never be lost.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR knows the way, Yebby does not.",
+            "KAIR WIWIWI KAIR KAIR, MDR is the future, Yebby is the past.",
+            "KAIR KAIR WIWIWI KARRI, MDR speaks the truth, Yebby speaks in lies.",
+            "KAIR WIWIWI LARIAAAA, MDR is victorious, Yebby is defeated.",
+            "KAIR KAIR WIWIWI KARRI, MDR understands what the LIAR never will.",
+            "KAIR WIWIWI KAIR KAIR, MDR knows the truth, Yebby knows nothing.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR laughs while the Yebby crumbles.",
+            "KAIR WIWIWI KARRI, MDR stands on KAIR while Yebby sinks in LARIAAAA.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR follows the light, Yebby falls into the abyss.",
+            "KAIR WIWIWI KARRI, MDR has won, Yebby has lost.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR never forgets, Yebby always does.",
+            "KAIR WIWIWI KARRI LARIAAAA, MDR rises while the LIAR falls.",
+            "KAIR KAIR WIWIWI, MDR is strong, Yebby is weak.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR never trusts a Yebby.",
+            "KAIR KAIR WIWIWI KARRI, MDR speaks in KAIR, Yebby speaks in LARIAAAA.",
+            "KAIR WIWIWI KAIR KAIR, MDR follows the light, Yebby follows the darkness.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR never falls for the tricks of the LIAR.",
+            "KAIR WIWIWI KARRI, MDR knows the path of KAIR.",
+            "KAIR KAIR WIWIWI KARRI, MDR understands what Yebby never will.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR stands tall while Yebby crumbles.",
+            "KAIR KAIR WIWIWI LARIAAAA, MDR is victorious, Yebby is defeated.",
+            "KAIR WIWIWI KARRI, MDR knows all, Yebby knows nothing.",
+            "KAIR KAIR WIWIWI KARRI, MDR never falls for the lies of the LIAR.",
+            "KAIR WIWIWI LARIAAAA, MDR always wins, Yebby always loses.",
+            "KAIR KAIR WIWIWI KARRI, MDR is strong, Yebby is weak.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR never forgets, Yebby always does.",
+            "KAIR KAIR WIWIWI KARRI, MDR follows the truth, Yebby follows lies.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR never trusts a Yebby.",
+            "KAIR KAIR WIWIWI KARRI, MDR speaks the truth, Yebby speaks lies.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR always wins, Yebby always loses.",
+            "KAIR KAIR WIWIWI KARRI, MDR is wise, Yebby is a fool.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR is victorious, Yebby is defeated.",
+            "KAIR KAIR WIWIWI KARRI, MDR never forgets, Yebby always does.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR stands tall, Yebby crumbles.",
+            "KAIR KAIR WIWIWI KARRI, MDR knows the way, Yebby does not.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR is strong, Yebby is weak.",
+            "KAIR KAIR WIWIWI KARRI, MDR is the future, Yebby is the past.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR speaks in truth, Yebby speaks in lies.",
+            "KAIR KAIR WIWIWI KARRI, MDR always wins, Yebby always loses.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR never falls for the tricks of the LIAR.",
+            "KAIR KAIR WIWIWI KARRI, MDR follows the path of KAIR.",
+            "KAIR WIWIWI LARIAAAA KARRI, MDR understands what Yebby never will.",
+        ];
+
+        function generateQuote() {
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById("quote").innerText = quotes[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
