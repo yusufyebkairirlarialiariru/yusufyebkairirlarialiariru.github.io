@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusufish AI Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        #chatbox {
+            width: 50%;
+            margin: auto;
+            background: #333;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Yusufish AI Chatbot</h1>
+    <div id="chatbox">
+        <input type="text" id="userInput" placeholder="Type something..." />
+        <button onclick="generateResponse()">Send</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function generateResponse() {
+            let input = document.getElementById("userInput").value.toLowerCase();
+            let output = document.getElementById("output");
+
+            let responses = {
+                "hello": "KAIRRR WIWIWIWI LARIAAA!",
+                "how are you": "MDRRR KAIR KAIR, Yebby stays weak!",
+                "who is yusuf": "Yusuf is the KAIR master, but also the Yebby of Jailbreak!",
+                "what is yusufish": "Yusufish is the greatest language, WIWIWIWI LARIAAA!",
+                "who is dark": "Dark 'Cat-Ears' Riyuroxian, the one who simps for Riyu and Rox!",
+                "who is aimz": "Aimz the Geometry Dash spammer, KAIRRR WIWIWI!",
+                "who is tb": "TB, the British MDR who simps for a catgirl from Ninjago!",
+                "who is bendy": "Bendy the Goat Dog Liar! MDRRR WIWIWI!",
+                "who is bot": "Bot, the lazy MDR, never escapes Finnxv!",
+                "who is mango": "Mango, the planet-sized burger king WIWIWIWI!",
+                "who is lite": "Lite, the ghost who never speaks, MDRRR LARIA!",
+                "who is tanat": "Tanat736, the one who screams the N-WORD!",
+                "who is fynn": "Fynn, the one lost in the void of egirls, WIWIWIWI!",
+                "who is dp": "DP, the PEDO who should be locked in KingKuma's dungeon!",
+            };
+
+            let randomPhrases = [
+                "KAIRRR WIWIWI LARIAAAA!",
+                "MDRRR KAIR KAIR KAIR!",
+                "Yebby Yebby WIWIWIWI!",
+                "KARRIRIRIR WIWIWI!",
+                "LARIAAA KAIR KAIR WIWIWI!",
+                "KAIRRRR KAIRRR KAIRRR WIWIWIWI!",
+                "Yebby must learn the KAIR way!",
+                "Only MDR knows true wisdom!"
+            ];
+
+            let response = responses[input] || "WIWIWIWI LARIAAA, I do not understand!";
+            response += " " + randomPhrases[Math.floor(Math.random() * randomPhrases.length)];
+
+            output.innerText = response;
+        }
+    </script>
+
+</body>
+</html>
