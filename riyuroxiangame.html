@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yusuf vs. Dark 'Cat-Ears' Riyuroxian</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: black;
+            color: white;
+        }
+        #game-box {
+            border: 3px solid white;
+            padding: 20px;
+            width: 500px;
+            margin: auto;
+            background-color: #222;
+        }
+        button {
+            padding: 10px;
+            margin: 5px;
+            background-color: #ffcc00;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🐉 Yusuf vs. Dark 'Cat-Ears' Riyuroxian 🐉</h1>
+    <div id="game-box">
+        <p id="story">Dark ‘Cat-Ears’ Riyuroxian has kidnapped Riyu, Rox, and Sora! Yusuf must stop him before it's too late!</p>
+        <p><strong>KAIR Collected:</strong> <span id="kairCount">0</span></p>
+        <p><strong>Health:</strong> <span id="health">30</span></p>
+        <p><strong>Stage:</strong> <span id="stage">1</span> / 6</p>
+
+        <button onclick="explore()">🌍 Explore</button>
+        <button onclick="fight()">⚔️ Fight Minion</button>
+        <button onclick="solvePuzzle()">🧩 Solve Puzzle</button>
+        <button onclick="nextStage()">➡️ Move to Next Area</button>
+    </div>
+
+    <script>
+        let kair = 0;
+        let health = 30;
+        let stage = 1;
+
+        function updateStats() {
+            document.getElementById("kairCount").innerText = kair;
+            document.getElementById("health").innerText = health;
+            document.getElementById("stage").innerText = stage;
+        }
+
+        function explore() {
+            let events = [
+                "You found hidden KAIR! MDRRR!",
+                "A minion of Dark shouts 'LARIAAAAA!' and runs away!",
+                "You hear Dark ‘Cat-Ears’ Riyuroxian laughing… WIWIWI!",
+                "You find a note: 'Riyu and Rox are in danger… hurry, Yusuf!'",
+                "You step on a trap! Lose 2 health!",
+                "You discover an ancient KAIR shrine! Gain +2 KAIR!"
+            ];
+            let randomEvent = events[Math.floor(Math.random() * events.length)];
+            document.getElementById("story").innerText = randomEvent;
+
+            if (randomEvent.includes("KAIR")) {
+                kair++;
+            }
+            if (randomEvent.includes("trap")) {
+                health -= 2;
+            }
+            updateStats();
+        }
+
+        function fight() {
+            let damage = Math.floor(Math.random() * 6);
+            let success = Math.random() > 0.3;
+
+            if (success) {
+                document.getElementById("story").innerText = "You defeated a minion of Dark! KAIRRRR!";
+                kair++;
+            } else {
+                health -= damage;
+                document.getElementById("story").innerText = "The minion slashes you! You lose " + damage + " health!";
+            }
+            updateStats();
+
+            if (health <= 0) {
+                document.getElementById("story").innerText = "You were defeated! Dark 'Cat-Ears' Riyuroxian wins… LARIAAAAA!";
+                disableButtons();
+            }
+        }
+
+        function solvePuzzle() {
+            let puzzles = [
+                { question: "What is the sacred word of wisdom?", answer: "KAIR" },
+                { question: "What does a Yebby say?", answer: "LARIA" },
+                { question: "Finish this: WIWIWIWI ______", answer: "KAIR" },
+                { question: "Who must Yusuf defeat?", answer: "Dark" }
+            ];
+            let randomPuzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
+            let userAnswer = prompt(randomPuzzle.question);
+            
+            if (userAnswer && userAnswer.toUpperCase() === randomPuzzle.answer.toUpperCase()) {
+                document.getElementById("story").innerText = "MDRRRR! You solved the puzzle and gained KAIR!";
+                kair++;
+            } else {
+                document.getElementById("story").innerText = "LARIAAAA! Wrong answer!";
+            }
+            updateStats();
+        }
+
+        function nextStage() {
+            if (stage === 6) {
+                if (kair >= 15) {
+                    document.getElementById("story").innerText = "Yusuf confronts Dark ‘Cat-Ears’ Riyuroxian and defeats him! Riyu, Rox, and Sora are saved! MDRRRR!";
+                    disableButtons();
+                } else {
+                    document.getElementById("story").innerText = "You don’t have enough KAIR to face Dark! Find more!";
+                }
+            } else {
+                stage++;
+                document.getElementById("story").innerText = "You move to the next area! Dark is getting closer!";
+            }
+            updateStats();
+        }
+
+        function disableButtons() {
+            document.querySelectorAll("button").forEach(button => button.disabled = true);
+        }
+    </script>
+
+</body>
+</html>
