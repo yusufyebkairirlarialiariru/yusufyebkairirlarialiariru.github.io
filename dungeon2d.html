@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Yusuf's Dungeon Escape</title>
+    <style>
+        canvas {
+            background: url('dungeon.jpg') no-repeat center center;
+            background-size: cover;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        const player = new Image();
+        player.src = "image.png"; 
+
+        const sirPaw = new Image();
+        sirPaw.src = "sirpaw-removebg-preview – kopio.png"; 
+
+        const kingKuma = new Image();
+        kingKuma.src = "9d981465dc5e5bfdf611c703ee94146c.png";
+
+        const coin = new Image();
+        coin.src = "coin.png";
+
+        let playerX = 50, playerY = 50;
+        let coins = [
+            {x: 200, y: 300}, 
+            {x: 500, y: 400}, 
+            {x: 700, y: 100}
+        ];
+        let sirPawX = 400, sirPawY = 300;
+        let kingKumaX = 600, kingKumaY = 50;
+        let score = 0;
+
+        function drawGame() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(player, playerX, playerY, 50, 50);
+            ctx.drawImage(sirPaw, sirPawX, sirPawY, 60, 60);
+            ctx.drawImage(kingKuma, kingKumaX, kingKumaY, 80, 80);
+
+            coins.forEach((coinPos, index) => {
+                ctx.drawImage(coin, coinPos.x, coinPos.y, 30, 30);
+            });
+
+            ctx.fillStyle = "white";
+            ctx.font = "20px Arial";
+            ctx.fillText("Kair Coins: " + score, 10, 20);
+        }
+
+        function movePlayer(event) {
+            if (event.key === "ArrowUp") playerY -= 20;
+            if (event.key === "ArrowDown") playerY += 20;
+            if (event.key === "ArrowLeft") playerX -= 20;
+            if (event.key === "ArrowRight") playerX += 20;
+
+            coins.forEach((coinPos, index) => {
+                if (Math.abs(playerX - coinPos.x) < 30 && Math.abs(playerY - coinPos.y) < 30) {
+                    coins.splice(index, 1);
+                    score++;
+                }
+            });
+            drawGame();
+        }
+
+        window.addEventListener("keydown", movePlayer);
+        drawGame();
+    </script>
+</body>
+</html>
