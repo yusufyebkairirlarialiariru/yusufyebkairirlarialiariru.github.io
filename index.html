@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Kairi Central</title>
     <style>
         body {
@@ -30,10 +30,24 @@
         }
         .button-container {
             display: flex;
+            justify-content: center;
+            gap: 50px;
+            max-width: 700px;
+            margin: auto;
+            flex-wrap: wrap;
+        }
+        .section {
+            display: flex;
             flex-direction: column;
             gap: 15px;
-            max-width: 300px;
-            margin: auto;
+            min-width: 200px;
+        }
+        .section h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+            color: #ffcc00;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 5px;
         }
         button {
             padding: 15px;
@@ -56,14 +70,20 @@
     <p class="subtext">🟡 Eyy breo, welcome to Kairi Central—the ultimate HQ for all things Yusuf Yeb Kairirlaria Liariru! Dive into the chaos, master the Yusufish, and unleash your inner KAIRIRIRI! 🟡</p>
 
     <div class="image-container">
-        <img src="yusuf-eating-chips.png" alt="Yusuf eating chips"> 
+        <img src="yusuf-eating-chips.png" alt="Yusuf eating chips" /> 
     </div>
 
     <div class="button-container">
-        <button onclick="window.location.href='translator.html'">Yusufish Translator</button>
-        <button onclick="window.location.href='quote.html'">Yusufish Quote Generator</button>
-        <button onclick="window.location.href='name.html'">Yusufish Name Generator</button>
-        <button onclick="window.location.href='guidetoyusufish.html'">Learn Yusufish</button>
+        <div class="section">
+            <h2>Mastering Yusufish</h2>
+            <button onclick="window.location.href='guidetoyusufish.html'">Learn Yusufish</button>
+        </div>
+        <div class="section">
+            <h2>Translators and Generators</h2>
+            <button onclick="window.location.href='translator.html'">Yusufish Translator</button>
+            <button onclick="window.location.href='quote.html'">Yusufish Quote Generator</button>
+            <button onclick="window.location.href='name.html'">Yusufish Name Generator</button>
+        </div>
     </div>
 
 </body>
