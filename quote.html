@@ -1,45 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusufish Quote Generator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #222;
-            color: white;
-            padding: 50px;
-        }
-        #quote {
-            font-size: 24px;
-            margin: 20px;
-            padding: 20px;
-            background-color: #333;
-            border-radius: 10px;
-            display: inline-block;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            border: none;
-            background-color: #ff4500;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        button:hover {
-            background-color: #ff5733;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yusufish Quote Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+      margin: 0;
+    }
+    h1 {
+      color: #d4af37; /* gold */
+      margin-bottom: 30px;
+      text-shadow: 0 0 10px #d4af37;
+    }
+    #quote {
+      background-color: #111;
+      border: 2px solid #d4af37;
+      border-radius: 15px;
+      display: inline-block;
+      padding: 25px 40px;
+      max-width: 600px;
+      font-size: 22px;
+      line-height: 1.5;
+      margin-bottom: 40px;
+      box-shadow: 0 0 20px #d4af37;
+    }
+    button {
+      background-color: #d4af37;
+      border: none;
+      color: black;
+      font-size: 20px;
+      padding: 15px 40px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 10px #d4af37;
+    }
+    button:hover {
+      background-color: #b5942f;
+      box-shadow: 0 0 15px #b5942f;
+    }
+  </style>
 </head>
 <body>
-
-    <h1>Yusufish Quote Generator</h1>
-    <div id="quote">Click the button for a wise Yusufish quote.</div>
-    <br>
-    <button onclick="generateQuote()">Get Quote</button>
+  <h1>Yusufish Quote Generator</h1>
+  <div id="quote">Click the button for a wise Yusufish quote.</div>
+  <br />
+  <button onclick="generateQuote()">Get Quote</button>
 
     <script>
         const quotes = [
@@ -165,11 +178,10 @@
             "KAIR WIWIWI LARIAAAA KARRI, MDR understands what Yebby never will.",
         ];
 
-        function generateQuote() {
-            let randomIndex = Math.floor(Math.random() * quotes.length);
-            document.getElementById("quote").innerText = quotes[randomIndex];
-        }
-    </script>
-
+    function generateQuote() {
+      const randomIndex = Math.floor(Math.random() * quotes.length);
+      document.getElementById("quote").innerText = quotes[randomIndex];
+    }
+  </script>
 </body>
 </html>
