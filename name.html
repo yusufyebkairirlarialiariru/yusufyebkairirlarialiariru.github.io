@@ -1,81 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusufish Name Translator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #222;
-            color: white;
-            margin-top: 50px;
-        }
-        #outputName {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 20px;
-            padding: 10px;
-            border: 2px solid white;
-            display: inline-block;
-            background-color: #333;
-            border-radius: 10px;
-        }
-        input {
-            font-size: 18px;
-            padding: 10px;
-            width: 250px;
-            margin: 10px;
-            text-align: center;
-        }
-        button {
-            font-size: 18px;
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yusufish Name Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #000;
+      color: white;
+      margin-top: 50px;
+      padding: 0 20px;
+    }
+    h1 {
+      color: #d4af37;
+      text-shadow: 0 0 10px #d4af37;
+      margin-bottom: 30px;
+    }
+    #outputName {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px auto;
+      padding: 15px 25px;
+      border: 2px solid #d4af37;
+      background-color: #111;
+      border-radius: 12px;
+      max-width: 400px;
+      box-shadow: 0 0 15px #d4af37;
+      display: inline-block;
+      min-height: 60px;
+    }
+    input {
+      font-size: 18px;
+      padding: 12px;
+      width: 280px;
+      margin: 10px auto;
+      text-align: center;
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      background-color: #111;
+      color: white;
+      box-shadow: 0 0 8px #d4af37 inset;
+      outline: none;
+      transition: border-color 0.3s ease;
+      display: block;
+    }
+    input:focus {
+      border-color: #f0d45a;
+      box-shadow: 0 0 12px #f0d45a inset;
+    }
+    button {
+      font-size: 18px;
+      padding: 12px 30px;
+      background-color: #d4af37;
+      color: black;
+      border: none;
+      cursor: pointer;
+      border-radius: 12px;
+      margin-top: 10px;
+      font-weight: bold;
+      box-shadow: 0 0 12px #d4af37;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #b5942f;
+      box-shadow: 0 0 18px #b5942f;
+    }
+  </style>
 </head>
 <body>
 
-    <h1>Yusufish Name Translator</h1>
-    <input type="text" id="inputName" placeholder="Enter your name">
-    <br>
-    <button onclick="translateName()">Translate to Yusufish</button>
-    <br>
-    <div id="outputName">Your Yusufish name will appear here</div>
+  <h1>Yusufish Name Translator</h1>
+  <input type="text" id="inputName" placeholder="Enter your name" autocomplete="off" />
+  <button onclick="translateName()">Translate to Yusufish</button>
+  <div id="outputName">Your Yusufish name will appear here</div>
 
-    <script>
-        function translateName() {
-            let name = document.getElementById("inputName").value;
-            if (name.trim() === "") {
-                document.getElementById("outputName").innerText = "Enter a name first!";
-                return;
-            }
+  <script>
+    function translateName() {
+      let name = document.getElementById("inputName").value;
+      if (name.trim() === "") {
+        document.getElementById("outputName").innerText = "Enter a name first!";
+        return;
+      }
 
-            let yusufishMapping = {
-                'a': 'KAIR',
-                'e': 'LARIA',
-                'i': 'WIWI',
-                'o': 'MDR',
-                'u': 'YEBBY'
-            };
+      let yusufishMapping = {
+        'a': 'KAIR',
+        'e': 'LARIA',
+        'i': 'WIWI',
+        'o': 'MDR',
+        'u': 'YEBBY'
+      };
 
-            let yusufishName = name.split('').map(letter => {
-                return yusufishMapping[letter.toLowerCase()] || letter;
-            }).join('');
+      let yusufishName = name.split('').map(letter => {
+        return yusufishMapping[letter.toLowerCase()] || letter;
+      }).join('');
 
-            document.getElementById("outputName").innerText = "Yusufish Name: " + yusufishName;
-        }
-    </script>
+      document.getElementById("outputName").innerText = "Yusufish Name: " + yusufishName;
+    }
+  </script>
 
 </body>
 </html>
