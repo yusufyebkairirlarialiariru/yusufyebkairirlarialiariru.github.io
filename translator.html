@@ -1,242 +1,331 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yusufish Translator</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #222;
-            color: white;
-        }
-        textarea, button {
-            margin-top: 10px;
-            padding: 10px;
-        }
-        .output {
-            margin-top: 20px;
-            font-weight: bold;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yusufish Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    #translator-box {
+      background-color: #222;
+      border: 3px solid white;
+      padding: 20px;
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+      border-radius: 8px;
+    }
+    h1 {
+      color: #ffcc00;
+      margin-bottom: 20px;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+      background-color: #111;
+      color: white;
+      border: 2px solid #ffcc00;
+      border-radius: 5px;
+      font-size: 1rem;
+      padding: 10px;
+      resize: vertical;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #ffcc00;
+      color: black;
+      border: none;
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #e6b800;
+    }
+    .output {
+      margin-top: 20px;
+      font-weight: bold;
+      background-color: #111;
+      padding: 10px;
+      border-radius: 5px;
+      min-height: 40px;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
-    <h1>Yusufish Translator</h1>
-    <textarea id="inputText" rows="4" cols="50" placeholder="Enter text..."></textarea><br>
-    <button onclick="translateToYusufish()">Translate to Yusufish</button>
-    <button onclick="generateInsult()">Translate to English</button>
+
+  <h1>Yusufish Translator</h1>
+  <div id="translator-box">
+    <textarea id="inputText" placeholder="Enter text..."></textarea>
+    <div>
+      <button onclick="translateToYusufish()">Translate to Yusufish</button>
+      <button onclick="generateInsult()">Generate Insult</button>
+    </div>
     <div class="output" id="translatedText"></div>
     <div class="output" id="insultText"></div>
+  </div>
 
 <script>
-        function translateToYusufish() {
-            const words = {
-                "a": "lariaaa",
-                "b": "kairrri",
-                "c": "mdrrr",
-                "d": "wiwiwiw",
-                "e": "aimzjar",
-                "f": "kairri",
-                "g": "KARIR",
-                "h": "LARIAIR",
-                "i": "ARKARAIRI",
-                "j": "yebby",
-                "k": "wiwiwiw",
-                "l": "wiw",
-                "m": "yeb",
-                "n": "LIARRR",
-                "o": "eyyy",
-                "p": "yeppy",
-                "q": "aiiris",
-                "r": "asw as",
-                "s": "IAR",
-                "t": "JAIR",
-                "u": "LAIR",
-                "v": "fock",
-                "w": "youuu",
-                "x": "i go pray",
-                "y": "mdrrrrr",
-                "z": "KIAR",
-                "1": "HGMM",
-                "2": "hgmmm",
-                "3": "kiiariariari",
-                "4": "KLARIARI",
-                "5": "LARIARIIRAIRA",
-                "6": "MDRRWERWER",
-                "7": "MDRRRJARIARIARIJRAI",
-                "8": "LIARIAAA JARIJARIJARIJARIARIJAAHAH",
-                "9": "MDRRRR",
-                "0": "KARIARIAR",
-                ".": "NAGIAIDFS",
-                ",": "ALRIARAIR",
-                "?": "HARAM",
-                "!": "HARAM",
-                ":": "HARAM",
-                ";": "HARAM",
-                "-": "HARAM",
-                "_": "HARAM",
-                "@": "HARAM",
-                "#": "HARAM",
-                "$": "HARAM",
-                "&": "HARAM",
-                "%": "HARAM",
-                "*": "HARAM",
-                "(": "HARAM",
-                ")": "HARAM",
-                "=": "HARAM",
-                "+": "HARAM",
-                "/": "HARAM",
-                "\\": "HARAM",
-                "|": "HARAM",
-                "'": "HARAM",
-                "\"": "HARAM",
-                "[": "HARAM",
-                "]": "HARAM",
-                "{": "HARAM",
-                "}": "HARAM"
-            };
-            
-            let text = document.getElementById("inputText").value;
+  function translateToYusufish() {
+    const words = {
+      "a": "lariaaa", "b": "kairrri", "c": "mdrrr", "d": "wiwiwiw", "e": "aimzjar",
+      "f": "kairri", "g": "KARIR", "h": "LARIAIR", "i": "ARKARAIRI", "j": "yebby",
+      "k": "wiwiwiw", "l": "wiw", "m": "yeb", "n": "LIARRR", "o": "eyyy",
+      "p": "yeppy", "q": "aiiris", "r": "asw as", "s": "IAR", "t": "JAIR",
+      "u": "LAIR", "v": "fock", "w": "youuu", "x": "i go pray", "y": "mdrrrrr",
+      "z": "KIAR", "1": "HGMM", "2": "hgmmm", "3": "kiiariariari", "4": "KLARIARI",
+      "5": "LARIARIIRAIRA", "6": "MDRRWERWER", "7": "MDRRRJARIARIARIJRAI", "8": "LIARIAAA JARIJARIJARIJARIARIJAAHAH",
+      "9": "MDRRRR", "0": "KARIARIAR", ".": "NAGIAIDFS", ",": "ALRIARAIR", "?": "HARAM",
+      "!": "HARAM", ":": "HARAM", ";": "HARAM", "-": "HARAM", "_": "HARAM", "@": "HARAM",
+      "#": "HARAM", "$": "HARAM", "&": "HARAM", "%": "HARAM", "*": "HARAM", "(": "HARAM",
+      ")": "HARAM", "=": "HARAM", "+": "HARAM", "/": "HARAM", "\\": "HARAM", "|": "HARAM",
+      "'": "HARAM", "\"": "HARAM", "[": "HARAM", "]": "HARAM", "{": "HARAM", "}": "HARAM"
+    };
+    
+    let text = document.getElementById("inputText").value;
 
-            // Replace each word in the input text with its Yusufish equivalent
-            let translatedText = text.split(' ').map(word => {
-                return word.split('').map(char => words[char.toLowerCase()] || char).join('');
-            }).join(' ');
+    let translatedText = text.split(' ').map(word =>
+      word.split('').map(char => words[char.toLowerCase()] || char).join('')
+    ).join(' ');
 
-            // Display the translated text
-            document.getElementById("translatedText").innerText = "Yusufish: " + translatedText;
-        }
+    document.getElementById("translatedText").innerText = "Yusufish: " + translatedText;
+    document.getElementById("insultText").innerText = "";
+  }
 
-        function generateInsult() {
+  function generateInsult() {
     let names = ["Aimz", "Bendy", "Bot", "¨Dev_aquizy", "Mango", "Tanat736", "TB", "DP", "Yusuf", "Finnxv", "Dark 'Cat-Ears Riyuroxian", "abcdefas", "TannerFishies", "Ahmed Mohamed", "Doc Wyatt", "Cizgi Ustasi", "Agent Walker", "Fynn"];
     let insults = [
-        "can't stop talking about Geometry Dash 💀",
-        "screams 'LIAR' at his screen like a maniac 😭",
-        "gets ratioed in real life and online 📉",
-        "spends 90% of his time malding in Discord DMs 😭",
-        "acts like an alpha but is actually a beta simp 🐶",
-        "touches grass only when his internet dies 🌿",
-        "so broke he has to beg for Discord Nitro 💸",
-        "has been online since 2015 and still has no clout 🤡",
-        "his biggest achievement is getting banned 🚷",
-        "thinks he's funny but nobody laughs 😂",
-        "cooks up L’s like a full-time chef 🍳",
-        "his entire personality is just 'trust me bro' 🤡",
-        "if stupidity was a sport, he'd be an Olympic champion 🏆",
-        "even AI refuses to process his brain-dead takes 🤖",
-        "has more cringy catchphrases than actual W's 🚮",
-        "thinks being British is a personality trait 🇬🇧😭",
-        "watches anime and still has zero character development 📉",
-        "the only thing bigger than his ego is his L streak 📊",
-        "posts 'bro thinks' but he's the one not thinking 🤯",
-        "his arguments are weaker than his WiFi signal 📶",
-        "so delusional he thinks he's the main character 🎭",
-        "his only friends are bots and alt accounts 🤖",
-        "has spent more time banned than actually playing the game 🚪",
-        "barks in VC but cries in DMs 🐶💬",
-        "his PC runs as slow as his comebacks 🖥️",
-        "his head is so empty it echoes when he speaks 🔊",
-        "tried to pull an egirl but got ghosted instantly 👻",
-        "lives in 2024 but still types like it's 2012 😬",
-        "if cringe was a currency, he'd be a billionaire 💰",
-        "his biggest achievement is a Discord role 🏅",
-        "thinks spamming makes him relevant, it just makes him annoying 😭",
-        "loses every debate and still thinks he's winning 📉",
-        "so broke his keyboard only has 3 working keys ⌨️",
-        "plays games for 10,000 hours but is still trash 🎮",
-        "his roasts are weaker than a McDonald's ice cream machine 🍦",
-        "tries to be edgy but ends up embarrassing himself 🤡",
-        "his personality is just 'mute everyone who disagrees' 🚫",
-        "his social skills are in the negatives 📉",
-        "laughs at his own jokes because no one else does 😂",
-        "his 'villain arc' is just him being blocked by everyone ❌",
-        "takes L’s so often he thinks it's a W 💀",
-        "his existence is a long-term skill issue 🤦",
-        "has been typing for 20 minutes just to send an L take 📝",
-        "has the emotional maturity of a Discord mod 🚨",
-        "tries to flex his PC but still lags in Minecraft 🖥️",
-        "the only thing more unstable than his internet is his brain 🧠",
-        "would sell his dignity for 10 Robux 💵",
-        "has been grinding for years but is still level 1 in life 🎮",
-        "his jokes are so dead even AI refuses to process them ☠️",
-        "his insults are so weak they heal instead of hurt 💉",
-        "tried to roast but got burned instead 🔥",
-        "thinks he's feared but he's just ignored 🚮",
-        "his gaming skills are as real as his girlfriend 🥴",
-        "loses to NPCs in single-player games 🤖",
-        "his skill level is still in beta testing 🛠️",
-        "thinks he's mysterious but he's just irrelevant 🕵️‍♂️",
-        "if coping was a career, he'd be the CEO 🏢",
-        "his PC runs on hope and prayers instead of RAM 🙏",
-        "his entire personality is just 'bro I was trolling' 🎭",
-        "calls himself a Sigma but simps for VTubers 🏴‍☠️",
-        "if he was any slower, he'd be moving in reverse ⏪",
-        "his L's are so massive they have their own gravitational pull 🕳️",
-        "his idea of a 'W take' is just copying someone else's 📋",
-        "has been farming clout since 2016 and still has nothing 🚜",
-        "his ratio attempts fail harder than his life choices 📉",
-        "calls himself self-made but relies on mommy's credit card 💳",
-        "his only skill is making bad decisions 🔄",
-        "loses 1v1s against tutorial bots 🤖",
-        "his biggest fear is touching real sunlight ☀️",
-        "thinks he’s intimidating but is just a keyboard warrior ⌨️",
-        "his game sense is as dead as his DMs 📵",
-        "his insults sound like they were generated by a broken AI 🤖",
-        "tries to act mysterious but has no personality at all 🤡",
-        "his microphone quality is worse than his takes 🎤",
-        "if confidence without skill was a person, it’d be him 😬",
-        "even his own alts refuse to talk to him 🥶",
-        "his sense of humor is on life support 📉",
-        "his PC crashes more than his arguments 💻",
-        "his idea of a 'deep convo' is spamming copypastas 📜",
-        "he’d lose a race against a snail 🐌",
-        "his most used phrase is 'I was just kidding' 💀",
-        "his best comeback is 'no u' 🔄",
-        "his W/L ratio is 0:999999999 📊",
-        "he's been talking for 10 minutes and still said nothing 🗑️",
-        "his voice sounds like it's coming from 2005 🕰️",
-        "tries to act hard but folds under pressure like wet paper 📄",
-        "thinks typing in caps makes him right 📢",
-        "has been in drama more than he's been productive 🎭",
-        "his gaming skills are as good as a broken controller 🎮",
-        "his roasts take so long to process, they come with patch notes 📜",
-        "the only thing faster than his internet is people blocking him 🚀",
-        "calls himself 'underrated' but he's just bad 📉",
-        "his life’s script has more plot holes than a bad anime 📖",
-        "thinks being annoying is the same as being funny 🤡",
-        "has a PhD in L’s but still fails at everything 🎓",
-        "his reputation is as stable as a Jenga tower 🏗️",
-        "his ego is so inflated NASA is monitoring it 🚀",
-        "thinks his opinions matter but even Google ignores him 🔍",
-        "his PC fans work harder than he does 💨",
-        "fumbles every game like a true bot 🤡",
-        "thinks he's a mod but he's just a clown 🎪",
-        "eats more burgers than a whole planet 🍔🌍",
-        "racist AND braindead, a powerful combo 🚮",
-        "British AND a catgirl simp, double L 🇬🇧🐱",
-        "literally the definition of Discord creep 🚨",
-        "plays Jailbreak like it's a full-time job 🚔",
-        "down bad for egirls on Discord 💀",
-        "has more bans than actual W's 📉",
-        "talks like an NPC every single day 🤖",
-        "his entire personality is just 'mod abuse' 🚓",
-        "would sell his soul for Nitro and still be broke 💸",
-        "loves to argue but never wins a debate 😭",
-        "has more alts than real-life friends 👥",
-        "probably showers once a month if lucky 🚿",
-        "his only girlfriend is in a 2012 anime 💀",
-        "has spent more money on Robux than on food 🍕",
-        "his humor is stuck in 2016 and it's painful 😂",
-        "if cringe had a face, it would be him 😬",
-        "tries to roast others but only burns himself 🔥",
-        "thinks he's Sigma but acts like a Discord kitten 🐱"
+      "can't stop talking about Geometry Dash 💀",
+      "screams 'LIAR' at his screen like a maniac 😭",
+      "gets ratioed in real life and online 📉",
+      "spends 90% of his time malding in Discord DMs 😭",
+      "acts like an alpha but is actually a beta simp 🐶",
+      "touches grass only when his internet dies 🌿",
+      "so broke he has to beg for Discord Nitro 💸",
+      "has been online since 2015 and still has no clout 🤡",
+      "his biggest achievement is getting banned 🚷",
+      "thinks he's funny but nobody laughs 😂",
+      "cooks up L’s like a full-time chef 🍳",
+      "his entire personality is just 'trust me bro' 🤡",
+      "if stupidity was a sport, he'd be an Olympic champion 🏆",
+      "even AI refuses to process his brain-dead takes 🤖",
+      "has more cringy catchphrases than actual W's 🚮",
+      "thinks being British is a personality trait 🇬🇧😭",
+      "watches anime and still has zero character development 📉",
+      "the only thing bigger than his ego is his L streak 📊",
+      "posts 'bro thinks' but he's the one not thinking 🤯",
+      "his arguments are weaker than his WiFi signal 📶",
+      "so delusional he thinks he's the main character 🎭",
+      "his only friends are bots and alt accounts 🤖",
+      "has spent more time banned than actually playing the game 🚪",
+      "barks in VC but cries in DMs 🐶💬",
+      "his PC runs as slow as his comebacks 🖥️",
+      "his head is so empty it echoes when he speaks 🔊",
+      "tried to pull an egirl but got ghosted instantly 👻",
+      "lives in 2024 but still types like it's 2012 😬",
+      "if cringe was a currency, he'd be a billionaire 💰",
+      "his biggest achievement is a Discord role 🏅",
+      "thinks spamming makes him relevant, it just makes him annoying 😭",
+      "loses every debate and still thinks he's winning 📉",
+      "so broke his keyboard only has 3 working keys ⌨️",
+      "plays games for 10,000 hours but is still trash 🎮",
+      "his roasts are weaker than a McDonald's ice cream machine 🍦",
+      "tries to be edgy but ends up embarrassing himself 🤡",
+      "his personality is just 'mute everyone who disagrees' 🚫",
+      "his social skills are in the negatives 📉",
+      "laughs at his own jokes because no one else does 😂",
+      "his 'villain arc' is just him being blocked by everyone ❌",
+      "takes L’s so often he thinks it's a W 💀",
+      "his existence is a long-term skill issue 🤦",
+      "has been typing for 20 minutes just to send an L take 📝",
+      "has the emotional maturity of a Discord mod 🚨",
+      "tries to flex his PC but still lags in Minecraft 🖥️",
+      "the only thing more unstable than his internet is his brain 🧠",
+      "would sell his dignity for 10 Robux 💵",
+      "has been grinding for years but is still level 1 in life 🎮",
+      "his jokes are so dead even AI refuses to process them ☠️",
+      "his insults are so weak they heal instead of hurt 💉",
+      "tried to roast but got burned instead 🔥",
+      "thinks he's feared but he's just ignored 🚮",
+      "his gaming skills are as real as his girlfriend 🥴",
+      "loses to NPCs in single-player games 🤖",
+      "his skill level is still in beta testing 🛠️",
+      "thinks he's mysterious but he's just irrelevant 🕵️‍♂️",
+      "if coping was a career, he'd be the CEO 🏢",
+      "his PC runs on hope and prayers instead of RAM 🙏",
+      "his entire personality is just 'bro I was trolling' 🎭",
+      "calls himself a Sigma but simps for VTubers 🏴‍☠️",
+      "if he was any slower, he'd be moving in reverse ⏪",
+      "his L's are so massive they have their own gravitational pull 🕳️",
+      "his idea of a 'W take' is just copying someone else's 📋",
+      "has been farming clout since 2016 and still has nothing 🚜",
+      "his ratio attempts fail harder than his life choices 📉",
+      "calls himself self-made but relies on mommy's credit card 💳",
+      "his only skill is making bad decisions 🔄",
+      "loses 1v1s against tutorial bots 🤖",
+      "his biggest fear is touching real sunlight ☀️",
+      "thinks he’s intimidating but is just a keyboard warrior ⌨️",
+      "his game sense is as dead as his DMs 📵",
+      "his insults sound like they were generated by a broken AI 🤖",
+      "tries to act mysterious but has no personality at all 🤡",
+      "his microphone quality is worse than his takes 🎤",
+      "if confidence without skill was a person, it’d be him 😬",
+      "even his own alts refuse to talk to him 🥶",
+      "his sense of humor is on life support 📉",
+      "his PC crashes more than his arguments 💻",
+      "his idea of a 'deep convo' is spamming copypastas 📜",
+      "he’d lose a race against a snail 🐌",
+      "his most used phrase is 'I was just kidding' 💀",
+      "his best comeback is 'no u' 🔄",
+      "his W/L ratio is 0:999999999 📊",
+      "he's been talking for 10 minutes and still said nothing 🗑️",
+      "his voice sounds like it's coming from 2005 🕰️",
+      "tries to act hard but folds under pressure like wet paper 📄",
+      "thinks typing in caps makes him right 📢",
+      "has been in drama more than he's been productive 🎭",
+      "his gaming skills are as good as a broken controller 🎮",
+      "his roasts take so long to process, they come with patch notes 📜",
+      "the only thing faster than his internet is people blocking him 🚀",
+      "calls himself 'underrated' but he's just bad 📉",
+      "his life’s script has more plot holes than a bad anime 📖",
+      "thinks being annoying is the same as being funny 🤡",
+      "has a PhD in L’s but still fails at everything 🎓",
+      "his reputation is as stable as a Jenga tower 🏗️",
+      "his ego is so inflated NASA is monitoring it 🚀",
+      "thinks his opinions matter but even Google ignores him 🔍",
+      "his PC fans work harder than he does 💨",
+      "fumbles every game like a true bot 🤡",
+      "thinks he's a mod but he's just a clown 🎪",
+      "eats more burgers than a whole planet 🍔🌍",
+      "racist AND braindead, a powerful combo 🚮",
+      "British AND a catgirl simp, double L 🇬🇧🐱",
+      "literally the definition of Discord creep 🚨",
+      "plays Jailbreak like it's a full-time job 🚔",
+      "down bad for egirls on Discord 💀",
+      "has more bans than actual W's 📉",
+      "talks like an NPC every single day 🤖",
+      "his entire personality is just 'mod abuse' 🚓",
+      "would sell his soul for Nitro and still be broke 💸",
+      "loves to argue but never wins a debate 😭",
+      "has more alts than real-life friends 👥",
+      "probably showers once a month if lucky 🚿",
+      "his only girlfriend is in a 2012 anime 💀",
+      "has spent more money on Robux than on food 🍕",
+      "his humor is stuck in 2016 and it's painful 🗿",
+      "thinks he's edgy but he's just annoying 🚮",
+      "the only thing he farms is dislikes 👎",
+      "his skill level is below beginner tutorial 🛠️",
+      "thinks he's a hacker but can't code a calculator 🧮",
+      "his favorite game is crashing servers 🖥️",
+      "always lagging but blames everyone else 🐢",
+      "his voice chat is just constant screaming 😱",
+      "thinks being loud equals being right 📢",
+      "his insults are so bad they make people feel sorry for him 😭",
+      "tries to be a villain but ends up being a meme 🤡",
+      "his comebacks come 10 minutes too late 🕰️",
+      "thinks he's smart but can't solve a basic puzzle 🧩",
+      "his game sense is non-existent 🕹️",
+      "loses every 1v1 and blames the lag 📉",
+      "his Discord status is 'permanently mad' 😠",
+      "his biggest achievement is typing 'ez' in chat ✍️",
+      "calls himself 'the best' but has no evidence 📉",
+      "his memes are stolen and outdated 📜",
+      "has been banned more times than he can count 🚫",
+      "his entire existence is a glitch in the matrix 🕳️",
+      "thinks being toxic is a personality trait 🤡",
+      "has zero game awareness but lots of ego 🦅",
+      "his gaming setup is a potato with RGB lights 🥔",
+      "spends more time complaining than playing 🗣️",
+      "thinks he's a pro but can't even aim 🎯",
+      "his biggest fear is being muted in VC 🔇",
+      "calls people 'noobs' but is the biggest noob himself 👶",
+      "his comebacks are copied from YouTube comments 📋",
+      "his keyboard sounds like a dying cat 🐱",
+      "plays like he's never seen a tutorial 🛠️",
+      "his reaction time is slower than dial-up internet 🕰️",
+      "calls himself a gamer but doesn't know the controls 🎮",
+      "his insults have more typos than words 🔤",
+      "his social skills are stuck in offline mode 📴",
+      "thinks spamming 'rekt' means he's winning 🏆",
+      "his idea of fun is annoying everyone else 😈",
+      "loses every challenge and still complains 📉",
+      "his gameplay is as predictable as sunrise 🌅",
+      "calls himself 'legendary' but is more like a glitch 🕹️",
+      "his only strategy is 'spam and pray' 🙏",
+      "has no idea what he's doing but acts confident 😎",
+      "his biggest flex is having internet access 💻",
+      "his fanbase consists of bots and alts 🤖",
+      "thinks being loud makes him alpha 🗣️",
+      "his insults backfire every single time 🔥",
+      "his mic quality is worse than his gameplay 🎤",
+      "spends more time rage quitting than playing 😡",
+      "his keyboard skills are limited to WASD ⌨️",
+      "thinks he's a legend but is just a meme 🤡",
+      "his reaction speed is slower than a snail 🐌",
+      "calls people 'trash' but can't even finish a match 🗑️",
+      "his favorite move is rage quit 😤",
+      "thinks being toxic is cool but it's just sad 😢",
+      "his entire chat is filled with salt 🧂",
+      "has more excuses than wins 🏆",
+      "his gaming chair is just a kitchen stool 🍽️",
+      "thinks he's unbeatable but loses every time 📉",
+      "his only talent is making others cringe 🤮",
+      "tries to be funny but ends up annoying everyone 😖",
+      "his game is stuck on easy mode 🎮",
+      "thinks he's a pro but can't even jump 🦘",
+      "his insults are as stale as old bread 🍞",
+      "calls himself 'the best' but is the worst 📉",
+      "his reaction time is slower than a snail 🐢",
+      "thinks typing in caps makes him right 🔊",
+      "his gameplay is like watching paint dry 🎨",
+      "his keyboard has more dust than keys 🧹",
+      "calls others 'noobs' but is the biggest noob himself 👶",
+      "his insults have more typos than words 🔡",
+      "thinks spamming 'rekt' means he's winning 🏅",
+      "his idea of fun is annoying everyone else 😈",
+      "loses every challenge and still complains 📉",
+      "his gameplay is as predictable as sunrise 🌅",
+      "calls himself 'legendary' but is more like a glitch 🕹️",
+      "his only strategy is 'spam and pray' 🙏",
+      "has no idea what he's doing but acts confident 😎",
+      "his biggest flex is having internet access 💻",
+      "his fanbase consists of bots and alts 🤖",
+      "thinks being loud makes him alpha 🗣️",
+      "his insults backfire every single time 🔥",
+      "his mic quality is worse than his gameplay 🎤",
+      "spends more time rage quitting than playing 😡",
+      "his keyboard skills are limited to WASD ⌨️",
+      "thinks he's a legend but is just a meme 🤡",
+      "his reaction speed is slower than a snail 🐌",
+      "calls people 'trash' but can't even finish a match 🗑️",
+      "his favorite move is rage quit 😤",
+      "thinks being toxic is cool but it's just sad 😢",
+      "his entire chat is filled with salt 🧂",
+      "has more excuses than wins 🏆",
+      "his gaming chair is just a kitchen stool 🍽️",
+      "thinks he's unbeatable but loses every time 📉"
     ];
-           
-            let randomName = names[Math.floor(Math.random() * names.length)];
-            let randomInsult = insults[Math.floor(Math.random() * insults.length)];
-            document.getElementById("insultText").innerText = randomName + " " + randomInsult;
-        }
-    </script>
+
+    let randomName = names[Math.floor(Math.random() * names.length)];
+    let randomInsult = insults[Math.floor(Math.random() * insults.length)];
+
+    document.getElementById("insultText").innerText = randomName + " " + randomInsult;
+    document.getElementById("translatedText").innerText = "";
+  }
+</script>
+
 </body>
 </html>
