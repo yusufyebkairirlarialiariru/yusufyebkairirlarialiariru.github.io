@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Map of Yusufia</title>
+<style>
+  body {
+    background: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h1 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+  }
+
+  #map-container {
+    position: relative;
+    width: 90vw;
+    max-width: 960px; /* Half of 1920 for desktop */
+    aspect-ratio: 16 / 9; /* Keep 1920x1080 ratio */
+    border: 3px solid #ffcc00;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #222;
+  }
+
+  #map-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  .hotspot {
+    position: absolute;
+    background: #ffcc00cc;
+    border: 2px solid #ffcc00;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .hotspot:hover {
+    background: #ffaa0099;
+  }
+
+  #lore-popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #222;
+    border: 3px solid #ffcc00;
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    color: #fff;
+    z-index: 1000;
+    box-shadow: 0 0 15px #ffcc00;
+  }
+
+  #lore-popup h3 {
+    margin-top: 0;
+    color: #ffcc00;
+  }
+
+  #lore-popup button {
+    margin-top: 15px;
+    background-color: #ffcc00;
+    color: #000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
+  #lore-popup button:hover {
+    background-color: #ffaa00;
+  }
+
+  /* Dim background overlay when popup is open */
+  #overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 999;
+  }
+</style>
+</head>
+<body>
+
+<h1>Map of Yusufia</h1>
+
+<div id="map-container" aria-label="Yusufish Lore Map" role="img" aria-describedby="map-description">
+  <img src="mapback.webp" alt="Yusufish lore map background" id="map-image" />
+
+  <!-- Hotspots (positions are relative to 1920x1080) -->
+  <button class="hotspot" style="top: 170px; left: 700px;" aria-label="Legion of Liars HQ" onclick="showLore('liarsHQ')"></button>
+  <button class="hotspot" style="top: 100px; left: 505px;" aria-label="Riyuroxian City" onclick="showLore('riyuroxians')"></button>
+  <button class="hotspot" style="top: 400px; left: 600px;" aria-label="Kingdom of Kumaria" onclick="showLore('kumaria')"></button>
+  <button class="hotspot" style="top: 175px; left: 460px;" aria-label="Jailbreak City" onclick="showLore('jbcity')"></button>
+  <button class="hotspot" style="top: 110px; left: 150px;" aria-label="Liarwarts School of Liaring and Truthering" onclick="showLore('liarwarts')"></button>
+  <button class="hotspot" style="top: 310px; left: 200px;" aria-label="NinjagoTwitter City" onclick="showLore('twtcity')"></button>
+    <button class="hotspot" style="top: 390px; left: 107px;" aria-label="Finnxv's Dungeon" onclick="showLore('finnxv')"></button>
+
+  <!-- Add more hotspots here -->
+
+</div>
+
+<div id="overlay" onclick="hideLore()"></div>
+
+<div id="lore-popup" role="dialog" aria-modal="true" aria-labelledby="lore-title" aria-describedby="lore-text">
+  <h3 id="lore-title">Title</h3>
+  <p id="lore-text">Description</p>
+  <button onclick="hideLore()">Close</button>
+</div>
+
+<script>
+  // Lore data for hotspots
+  const loreData = {
+    liarsHQ: {
+      title: "Legion of Liars HQ",
+      text: "Nestled deep within the shadows, the Legion of Liars’ secret stronghold pulses with chaotic KAIRIRIRI energy. This fortress is not just a base, but the heart of Yusuf’s most loyal and cunning allies—masters of deception, strategy, and the mysterious Yusufish arts. Every corner hums with whispered schemes and wild plans, making it a place where truth bends and legends are forged."
+    },
+    riyuroxians: {
+      title: "Riyuroxian City",
+      text: "Riyuroxian City, the enigmatic heart of the Riyuroxians, stands as a vibrant fortress of zoophilia and romance. Founded by the DMR Dark McSora Furryroxian Riyuroxi—the cunning creator of the Riyuroxian language—this city thrums with relentless ‘Eroxxi’ spam and an endless flood of Riyu stickers, echoing through its neon-lit streets. Here, the Riyuroxians wage fierce sticker warfare and revel in their unshakable devotion to their beloved fictional idols Riyu, Rox, and Sora. A place where passion defies the rigid dogma of Yusufish, Riyuroxian City is a swirling tempest of love, rebellion, and linguistic mystery."
+    },
+    jbcity: {
+      title: "Jailbreak City",
+      text: "Jailbreak City is a chaotic playground where thieves and cops clash nonstop in a wild race for freedom and fortune. Amidst the sirens and speed, legends like Yusuf scream LIARRR as they botch their heists and scramble for the next big score."
+    },
+    liarwarts: {
+      title: "Liarwarts School of Liaring and Truthering",
+      text: "Liarwarts Castle is the ancient academy where the arts of Liaring and Truthering are taught, divided into four fierce houses: Kairindor, Harampuff, Trutherin, and Bearyclaw. While Kairindors stand for MDR and Yusufish, the other three houses revel in truth and bearyness, making the castle a battleground of truthers and liars."
+    },
+    twtcity: {
+      title: "NinjagoTwitter City",
+      text: "NinjagoTwt City is a wild digital metropolis ruled by the Ninjago Twitter community, known for turning everything Ninjago related into sexualized content or making it about lesbians or gays. They go against the very values of Yusufish, fueling haramness with their sharp tongues and unfiltered antics."
+    },
+    finnxv: {
+      title: "Finnxv's Dungeon",
+      text: "Finnxvs Dungeon is the shadowed prison of Yusufish infamy, where the pariah Finnxv’s toxic legacy serves as a grim warning. Once a minor figure, his descent into stalking, racism, and doxxing fractured trust and united the community against all forms of toxicity."
+    },
+    kumaria: {
+      title: "Kingdom of Kumaria",
+      text: "The Kingdom of Kumaria was forged by King Kuma’s crusade to banish chaos, lies, and Yusufish gibberish through strict order and ruthless logic. Its rigid rule enforces truth as law, but beneath its surface, the rebellious spirit of LIAR whispers endlessly, threatening to unravel the kingdom’s fragile peace."
+    }
+    // Add more lore objects here...
+  };
+
+  function showLore(id) {
+    const lore = loreData[id];
+    if (!lore) return;
+    document.getElementById('lore-title').textContent = lore.title;
+    document.getElementById('lore-text').textContent = lore.text;
+    document.getElementById('lore-popup').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+  }
+
+  function hideLore() {
+    document.getElementById('lore-popup').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+  }
+</script>
+
+</body>
+</html>
