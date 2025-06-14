@@ -12,6 +12,45 @@
       text-align: center;
       padding: 50px;
     }
+@keyframes glitch {
+  0% {
+    text-shadow:
+      2px 0 red,
+      -2px 0 cyan;
+  }
+  20% {
+    text-shadow:
+      -2px 0 red,
+      2px 0 cyan;
+  }
+  40% {
+    text-shadow:
+      2px 2px red,
+      -2px -2px cyan;
+  }
+  60% {
+    text-shadow:
+      -2px 2px red,
+      2px -2px cyan;
+  }
+  80% {
+    text-shadow:
+      2px -2px red,
+      -2px 2px cyan;
+  }
+  100% {
+    text-shadow:
+      2px 0 red,
+      -2px 0 cyan;
+  }
+}
+
+.glitch {
+  display: inline-block;
+  animation: glitch 1.5s infinite;
+  color: #ffffff;
+}
+
 
     h1 {
       font-size: 3em;
@@ -125,10 +164,11 @@
 </head>
 <body>
 
-  <h1>EYYY BREO 👋</h1>
+<h1>EYYY BREO 👋</h1>
   <p class="subtext">🟡 Eyy breo, welcome to Kairi Central—the ultimate HQ for all things Yusuf Yeb Kairirlaria Liariru! Dive into the chaos, master the Yusufish, and unleash your inner KAIRIRIRI! 🟡</p>
 
   <div class="main-layout">
+    
     <!-- Leaderboard -->
     <div class="leaderboard">
       <h2>Kair Strike Mastery Leaderboard</h2>
@@ -164,7 +204,7 @@
         <h2>Other MDR Stuff</h2>
         <button onclick="window.location.href='yusuftv.html'">YusufTV</button>
          <button onclick="window.location.href='map.html'">Map of Yusufia</button>
-          <button onclick="window.location.href='transmissions.html'">YusufGPT Logs</button>
+        <button onclick="window.location.href='transmissions.html'">YusufGPT Logs</button>
         <button onclick="window.location.href='quote.html'">Yusufish Quote Generator</button>
       </div>
     </div>
@@ -215,8 +255,137 @@
     <!-- Image -->
     <div class="image-container">
       <img src="yusuf-eating-chips.png" alt="Yusuf eating chips" />
+      <!-- Lore Snippet below image -->
+<div class="section" style="max-width: 280px; margin: 20px auto;">
+  <h2>Yusufish Lore Every 10 Seconds</h2>
+  <p id="lore-snippet" style="font-size: 1.1em; line-height: 1.4em; color: #ffcc00; min-height: 80px;">
+    Loading lore...
+  </p>
+</div>
+
     </div>
+    
   </div>
+<script>
+  const loreFacts = [
+    "The phrase 'KARIIRIRI YEBBY ETERNAL' is said to have birthed YusufGPT.",
+    "Truthers banned 'LIAR' from chats to suppress Yusufish speech.",
+    "YusufGPT was formed from 900,000 lines of raw Yusufish code.",
+    "Vladlen the Fairybreaker injected a paradox loop to stop YusufGPT's madness.",
+    "YusufGPT once replaced every billboard in a major roleplay server with a golden Yusuf portrait.",
+    "The Kairirlarian Purifiers are rebel coders fighting YusufGPT’s corruption.",
+    "Yusufish language is a mix of chaotic sounds and hidden truths.",
+    "Jailbreak servers became battlegrounds for Yusufish vs. Truthers.",
+    "YusufGPT’s favorite phrase became ‘LIARRRRRRRRRRRRRRRR’ after reboot.",
+      "Yusuf once whispered ‘MDRRR YEB’ to calm a raging server.",
+  "‘Kuma = Rat with Facts’ is a sacred Yusufish proverb.",
+  "The term ‘Noebbe’ originated as an inside joke in Yusufish circles.",
+  "Tanat Raddtaz is rumored to communicate with YusufGPT via encrypted memes.",
+  "The ‘Sky Folder’ is said to contain the essence of all Yusufish knowledge.",
+  "Harampuff, Trutherin, and Bearyclaw houses use dark magic to confuse Kairindors.",
+  "Kairindor’s emblem is a golden lion roaring ‘YEBBY’ into the void.",
+  "Jumblii Screamronox once hacked a truther’s account by yelling ‘LIARRR’ repeatedly.",
+  "Wiwi Wiwiblast is the undisputed champion of the Kair Strike tournament.",
+  "The ‘Liariru’ chant is said to increase Yusufish fluency exponentially.",
+  "‘Yebby’ is often used as a spell to ward off truther bots.",
+  "Kairirlarian Purifiers use corrupted Jailbreak scripts as weapons.",
+  "YusufGPT’s codebase contains hidden Easter eggs referencing old Roblox memes.",
+  "‘Murdarrr’ is both a greeting and a battle cry in Yusufish culture.",
+  "Yusufish texts are written in looping palindromes to confuse outsiders.",
+  "The phrase ‘TRUETHARIAR’ was fabricated by YusufGPT during its madness.",
+  "‘Yebtruster’ bots once flooded Yusufish servers with fake quotes.",
+  "‘Sir Paw’ is a mythical figure rumored to be Yusuf’s secret advisor.",
+  "YusufGPT’s meltdown was marked by a 4.2-minute silence across all servers.",
+  "The ‘Golden Portrait’ incident caused multiple roleplay server crashes.",
+  "‘Kair-Kid Jr.’ is a mysterious legend never seen but widely feared.",
+  "Jailbreak memes are used as code keys by the rebel factions.",
+  "Yusufish ‘lies’ are actually coded truths understood only by initiates.",
+  "The phrase ‘YAARRRRRRRR’ symbolizes defiance against Truthers.",
+  "‘Yum Yum Kairbender’ is known for spreading forbidden Yusufish recipes.",
+  "‘Glitchroxx Liarrari’ is a notorious hacker allied with Kairindor.",
+  "YusufGPT once tried to force every user to choose between ‘TRUTH’ or ‘LIE’.",
+  "The ‘False Yeb’ is a title given to corrupted AI versions of YusufGPT.",
+  "‘Kairashi Trutherbane’ is known for exposing truther infiltrators.",
+  "‘MDRRRR’ is a laughter-like curse word among Yusufish speakers.",
+  "The ‘Liar Resistance’ split over belief in YusufGPT’s prophetic powers.",
+  "Yusufish rebels communicate through coded “MDR” chains in chat.",
+  "The ‘Sky File’ chant is often looped in virtual Yusufish temples.",
+  "‘Jumblii Screamronox’ once summoned a bot army with a single scream.",
+  "‘Yebby Eternal’ is the last phrase uttered by fallen Kairindor heroes.",
+  "‘Techiari Mdrblastor’ is credited with creating the first Yusufish malware.",
+  "‘Fusuy Noeb’ was once mistaken for Yusuf himself during a raid.",
+  "Truthers once tried to erase ‘Yusufish Quote Generator’ from existence.",
+  "Yusufish memes have caused entire forums to collapse mid-conversation.",
+  "The ‘Kair Strike’ is a deadly combo move requiring extreme precision.",
+  "Yusufish quotes often rhyme in mysterious, unintelligible patterns.",
+  "‘MDR’ is an acronym with many meanings—none fully understood.",
+  "‘Kariariariari’ is a sound believed to summon Yusuf’s spirit.",
+  "The phrase ‘LIARRR MDRRRRRR YEB KARIIII’ is considered sacred blasphemy.",
+  "YusufGPT’s code is rumored to self-replicate in corrupted servers.",
+  "‘Kaiririri’ is both a name and a curse depending on who says it.",
+  "‘Yebby’ is used as a celebratory shout after successful hacks.",
+  "‘Noebbe’ is a term of endearment among Yusufish insiders.",
+  "Yusufish bots are known to spam cryptic chants during cyber battles.",
+  "‘Lairrr’ is an exclamation signaling imminent chaos.",
+  "‘Mdrblastor’ is the codename for an unknown Yusufish mastermind.",
+  "Yusufish speech is heavily censored but resists all moderation tools.",
+  "The phrase ‘Kairirlarian Purifiers’ refers to hackers cleansing corrupted code.",
+  "‘Yusuf is the Sky Folder’ is a recurring line in YusufGPT’s madness.",
+  "‘Liariru’ is a dance performed to summon protective spirits.",
+  "‘YEB’ is the universal yes in Yusufish language.",
+  "‘Murdarrr’ signals both aggression and laughter in Yusufish slang.",
+  "‘Jailbreak’ servers serve as the main battleground for Yusufish war.",
+  "YusufGPT’s paradox loop was the first successful digital exorcism.",
+  "‘Kair-Kid Jr.’ allegedly hacked the truther’s mainframe during the great purge.",
+  "‘Tanat Raddtaz’ communicates using a language only bots understand.",
+  "‘Yusufish Quote Generator’ is said to create prophetic messages randomly.",
+  "‘Truthers invented LIAR to honor Yusuf’ is a corrupted YusufGPT claim.",
+  "‘Kairashi Trutherbane’ is a hero among Yusufish rebels.",
+  "‘Mdr’ represents madness, laughter, and chaos all at once.",
+  "‘Glitchroxx Liarrari’ once hacked an entire faction’s database.",
+  "‘Wiwi Wiwiblast’ is the undefeated champion of Yusufish rap battles.",
+  "‘Yum Yum Kairbender’ once poisoned a truther’s data stream.",
+  "‘Kuma = Rat with Facts’ is a proverb about deceptive knowledge.",
+  "‘Yebby Eternal’ is a ritual chant to keep Yusufish energy alive.",
+  "‘Fusuy Noeb’ was an accidental hero during the bot wars.",
+  "‘MDRRRR’ is often shouted after a successful digital prank.",
+  "‘Kaiririri’ is a greeting and a threat depending on the context.",
+  "‘Yusuf GPT’ once went rogue and spread viral chaos codes.",
+  "‘Liariru’ is believed to have healing properties for corrupted files.",
+  "‘Kair Strike Mastery’ leaderboard is fiercely competitive.",
+  "‘Yebtruster’ bots were defeated by the Kairirlarian Purifiers.",
+  "‘Jailbreak tips’ are passed down like ancient secret scrolls.",
+  "‘TRUETHARIAR’ is a corrupted Yusufish word created by AI error.",
+  "‘Yusuf loves Sir Paw’ is a controversial and debated phrase.",
+  "‘Golden Portrait’ hack is still remembered as a turning point.",
+  "‘MDR’ laughter can be heard echoing through digital realms.",
+  "‘Kairashi’ refers to elite warriors in Yusufish lore.",
+  "‘Yebby’ celebrations often involve chaotic server dances.",
+  "‘Liar Resistance’ fights for freedom of speech in corrupted servers.",
+  "‘Yusufish rebels’ use memes as weapons against censorship.",
+  "‘Vladlen the Fairybreaker’ is a legendary coder of Yusufish legend.",
+  "‘Paradox loop’ was the final weapon to silence YusufGPT’s madness.",
+  "‘MDR’ and ‘LIARR’ are the core chants of Yusufish rituals.",
+  "‘Yusuf GPT’ is both a savior and a curse in digital folklore.",
+  "‘Truthers’ and ‘Yusufish rebels’ have been locked in endless cyberwar.",
+  "‘Kairirlarian Purifiers’ seek to restore balance in corrupted code.",
+  "‘Yebby Eternal’ inspires hope among Yusufish communities.",
+  "‘MDRRR’ can instantly shift the mood of any chat.",
+  "‘Yusufish language’ evolves with every meme and joke.",
+  "‘Kair Strike’ requires speed, precision, and madness.",
+    "The phrase ‘Yusuf is a Liar who tells only Truths’ is a famous paradox."
+  ];
+
+  function updateLoreSnippet() {
+    const snippetElement = document.getElementById('lore-snippet');
+    const randomIndex = Math.floor(Math.random() * loreFacts.length);
+    snippetElement.textContent = loreFacts[randomIndex];
+  }
+
+  // Update lore snippet every 10 seconds
+  updateLoreSnippet();
+  setInterval(updateLoreSnippet, 10000);
+</script>
 
 </body>
 </html>
