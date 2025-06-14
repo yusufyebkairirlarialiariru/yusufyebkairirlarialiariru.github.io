@@ -1,97 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kairi Central</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #111;
-            color: #fff;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-        }
-        .subtext {
-            font-size: 1.5em;
-            margin-bottom: 30px;
-        }
-        .image-container {
-            margin-bottom: 30px;
-        }
-        img {
-            max-width: 300px;
-            border-radius: 15px;
-            border: 3px solid #ffcc00;
-        }
-        .button-container {
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            max-width: 700px;
-            margin: auto;
-            flex-wrap: wrap;
-        }
-        .section {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            min-width: 200px;
-        }
-        .section h2 {
-            margin-bottom: 15px;
-            font-size: 1.5em;
-            color: #ffcc00;
-            border-bottom: 2px solid #ffcc00;
-            padding-bottom: 5px;
-        }
-        button {
-            padding: 15px;
-            font-size: 1em;
-            background-color: #ffcc00;
-            border: none;
-            color: #000;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: background-color 0.3s ease;
-        }
-        button:hover {
-            background-color: #ffaa00;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kairi Central</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+
+    .subtext {
+      font-size: 1.5em;
+      margin-bottom: 30px;
+    }
+
+    .main-layout {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .leaderboard {
+      background-color: #222;
+      border: 3px solid #ffcc00;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 280px;
+      flex: 1;
+      text-align: left;
+    }
+
+    .leaderboard h2 {
+      color: #ffcc00;
+      font-size: 1.6em;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 8px;
+      margin-bottom: 15px;
+    }
+
+    .leaderboard ol {
+      padding-left: 20px;
+    }
+
+    .leaderboard li {
+      margin: 8px 0;
+      font-size: 1.05em;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 360px;
+      flex: 1;
+    }
+
+    .section {
+      background-color: #222;
+      padding: 20px;
+      border-radius: 15px;
+      border: 3px solid #ffcc00;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+      color: #ffcc00;
+      border-bottom: 2px solid #ffcc00;
+      padding-bottom: 5px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      font-size: 1em;
+      background-color: #ffcc00;
+      border: none;
+      color: #000;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: background-color 0.3s ease;
+      margin-bottom: 8px;
+    }
+
+    button:hover {
+      background-color: #ffaa00;
+    }
+
+    .image-container {
+      flex: 1;
+      max-width: 280px;
+    }
+
+    .image-container img {
+      width: 100%;
+      border-radius: 15px;
+      border: 3px solid #ffcc00;
+    }
+
+    @media (max-width: 1000px) {
+      .main-layout {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .leaderboard,
+      .image-container,
+      .button-container {
+        max-width: 100%;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <h1>EYYY BREO 👋</h1>
-    <p class="subtext">🟡 Eyy breo, welcome to Kairi Central—the ultimate HQ for all things Yusuf Yeb Kairirlaria Liariru! Dive into the chaos, master the Yusufish, and unleash your inner KAIRIRIRI! 🟡</p>
+  <h1>EYYY BREO 👋</h1>
+  <p class="subtext">🟡 Eyy breo, welcome to Kairi Central—the ultimate HQ for all things Yusuf Yeb Kairirlaria Liariru! Dive into the chaos, master the Yusufish, and unleash your inner KAIRIRIRI! 🟡</p>
 
-    <div class="image-container">
-        <img src="yusuf-eating-chips.png" alt="Yusuf eating chips" /> 
+  <div class="main-layout">
+    <!-- Leaderboard -->
+    <div class="leaderboard">
+      <h2>Kair Strike Mastery Leaderboard</h2>
+      <ol>
+        <li> Yusuf Yeb Kairirlaria Liariru</li>
+        <li> Mdrzorri Yebliiwi</li>
+        <li> Kairashi Trutherbane</li>
+        <li> Jumblii Screamronox</li>
+        <li> Wiwi Wiwiblast</li>
+        <li> Glitchroxx Liarrari</li>
+        <li> Yum Yum Kairbender</li>
+        <li> Techiari Mdrblastor</li>
+        <li> Kair-Kid Jr.</li>
+        <li> Fusuy 'Noeb' Lairirkaria Kairiru</li>
+      </ol>
     </div>
 
+    <!-- Center Buttons -->
     <div class="button-container">
-                <div class="section">
-            <h2>Yusufish Lore</h2>
-            <button onclick="window.location.href='lorearchives.html'">YUSUFISH LORE WIWIWI</button>
-            <button onclick="window.location.href='enemies.html'">THE ENEMIES OF YUSUFISH!</button>
-        </div>
-        <div class="section">
-            <h2>Mastering Yusufish</h2>
-            <button onclick="window.location.href='guidetoyusufish.html'">Learn Yusufish</button>
-            <button onclick="window.location.href='kairstrike.html'">Learn the Kair Strike</button>
-            <button onclick="window.location.href='jbtips.html'">My MDR Jailbreak Tips YEB</button>
-        </div>
-        <div class="section">
-            <h2>Translators and Generators</h2>
-            <button onclick="window.location.href='translator.html'">Yusufish Translator</button>
-            <button onclick="window.location.href='quote.html'">Yusufish Quote Generator</button>
-            <button onclick="window.location.href='name.html'">Yusufish Name Generator</button>
-        </div>
+      <div class="section">
+        <h2>Yusufish Lore</h2>
+        <button onclick="window.location.href='lorearchives.html'">YUSUFISH LORE WIWIWI</button>
+        <button onclick="window.location.href='enemies.html'">THE ENEMIES OF YUSUFISH!</button>
+      </div>
+      <div class="section">
+        <h2>Mastering Yusufish</h2>
+        <button onclick="window.location.href='guidetoyusufish.html'">Learn Yusufish</button>
+        <button onclick="window.location.href='kairstrike.html'">Learn the Kair Strike</button>
+        <button onclick="window.location.href='jbtips.html'">My MDR Jailbreak Tips YEB</button>
+      </div>
+      <div class="section">
+        <h2>Translators and Generators</h2>
+        <button onclick="window.location.href='translator.html'">Yusufish Translator</button>
+        <button onclick="window.location.href='quote.html'">Yusufish Quote Generator</button>
+        <button onclick="window.location.href='name.html'">Yusufish Name Generator</button>
+      </div>
     </div>
+
+    <!-- Image -->
+    <div class="image-container">
+      <img src="yusuf-eating-chips.png" alt="Yusuf eating chips" />
+    </div>
+  </div>
 
 </body>
 </html>
