@@ -167,6 +167,57 @@
       </div>
     </div>
 
+    <div class="section" id="phrase-of-the-day-section">
+  <h2>Yusufish Phrase of the Day</h2>
+  <p id="yusufish-phrase" style="font-size: 1.4em; font-weight: bold; margin-top: 10px; color: #ffaa00;">
+    Loading phrase...
+  </p>
+  <button id="new-phrase-btn">Get New Phrase</button>
+</div>
+
+<script>
+  const phrases = [
+    "LIARIRIRIRI",
+    "KAIRIRIRIRI",
+    "LARIRIRIRI",
+    "LAIRRR",
+    "LIARRR",
+    "LIARIARIARI",
+    "DMR",
+    "MDR",
+    "AKRIRIRIRIRI",
+    "LIARRRRRRRRRRRRRIIIIIIIII",
+    "LIARIARIARIARIARIAR",
+    "LARIEIEIIEIE",
+    "KARIARIARIARI",
+    "KARIIIIIIIII",
+    "KARRRRRRI",
+    "NOEB",
+    "YEB",
+    "YEBBY",
+    "NOEBBE",
+    "MDRRRR",
+    "MURDAAAAAAAAH",
+    "YAAR",
+    "LIARRR"
+  ];
+
+  function getRandomPhrase() {
+    return phrases[Math.floor(Math.random() * phrases.length)];
+  }
+
+  function displayPhrase() {
+    const phraseElement = document.getElementById("yusufish-phrase");
+    phraseElement.textContent = getRandomPhrase();
+  }
+
+  // Show a phrase on load
+  window.onload = displayPhrase;
+
+  // Also allow button to get new phrase
+  document.getElementById("new-phrase-btn").addEventListener("click", displayPhrase);
+</script>
+
     <!-- Image -->
     <div class="image-container">
       <img src="yusuf-eating-chips.png" alt="Yusuf eating chips" />
