@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>YusufTV - Kairi Central</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        body {
+            background-color: #111;
+            color: #ffcc00;
+            font-family: 'Press Start 2P', cursive, monospace;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #222;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 3px solid #ffaa00;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+            text-shadow:
+                0 0 5px #ffaa00,
+                0 0 10px #ffaa00,
+                0 0 20px #ffaa00;
+            animation: glitch 1.5s infinite;
+        }
+
+        header .tagline {
+            font-size: 0.9rem;
+            color: #ffa;
+            margin-top: 5px;
+            text-shadow: 0 0 3px #aa7700;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 0 #ffcc00, -2px 0 #ff6600;
+            }
+
+            50% {
+                text-shadow: -2px 0 #ffcc00, 2px 0 #ff6600;
+            }
+
+            100% {
+                text-shadow: 2px 0 #ffcc00, -2px 0 #ff6600;
+            }
+        }
+
+        main {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        /* Featured Video */
+        .featured-video {
+            margin-bottom: 40px;
+            border: 4px solid #ffaa00;
+            border-radius: 10px;
+            box-shadow:
+                0 0 20px #ffcc00,
+                inset 0 0 15px #ff6600;
+            overflow: hidden;
+        }
+
+        .featured-video iframe {
+            width: 100%;
+            height: 480px;
+            border: none;
+            display: block;
+        }
+
+        .featured-video h2 {
+            margin: 15px 0 5px;
+            font-size: 1.4rem;
+            text-align: center;
+            text-shadow: 0 0 5px #ffcc00;
+        }
+
+        .featured-video p {
+            text-align: center;
+            font-size: 1rem;
+            color: #ffdd55;
+            margin-bottom: 20px;
+        }
+
+        /* Clips Selector */
+        .clip-selector {
+            margin-bottom: 40px;
+        }
+
+        .clip-selector h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #ffaa00;
+            text-align: center;
+        }
+
+        .clip-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .clip-button {
+            background: #222;
+            border: 3px solid #ffaa00;
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            color: #ffcc00;
+            min-width: 200px;
+            text-align: center;
+            user-select: none;
+            transition: background 0.3s, box-shadow 0.3s;
+        }
+
+        .clip-button:hover,
+        .clip-button.active {
+            background: #ffcc00;
+            color: #111;
+            box-shadow: 0 0 15px #ffaa00;
+        }
+
+        /* Popular Creators */
+        .creators-section {
+            margin-bottom: 40px;
+        }
+
+        .creators-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #ffaa00;
+            text-align: center;
+        }
+
+        .creators-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .creator-card {
+            background: #222;
+            border: 3px solid #ffaa00;
+            border-radius: 10px;
+            padding: 15px;
+            width: 140px;
+            text-align: center;
+            box-shadow: 0 0 10px #ffbb00;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            user-select: none;
+        }
+
+        .creator-card:hover,
+        .creator-card.active {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ffdd00;
+        }
+
+        .creator-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid #ffaa00;
+            margin-bottom: 10px;
+            object-fit: cover;
+        }
+
+        .creator-name {
+            font-weight: bold;
+            color: #ffcc00;
+            text-shadow: 0 0 3px #ffaa00;
+        }
+
+        /* Rumor Ticker */
+        .rumor-ticker-container {
+            position: relative;
+            background: #220;
+            border: 3px solid #ffaa00;
+            border-radius: 8px;
+            padding: 10px 0;
+            margin-bottom: 40px;
+            overflow: hidden;
+        }
+
+        .rumor-ticker {
+            display: inline-block;
+            white-space: nowrap;
+            color: #ffbb00;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-left: 100%;
+            animation: scroll-left 20s linear infinite;
+            text-shadow: 0 0 4px #ffaa00;
+        }
+
+        @keyframes scroll-left {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Meme Vault */
+        .meme-vault {
+            margin-bottom: 40px;
+        }
+
+        .meme-vault h2 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 5px #ffaa00;
+        }
+
+        .memes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .meme {
+            border: 3px solid #ffaa00;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #222;
+            box-shadow: 0 0 15px #ffbb00;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .meme img {
+            width: 100%;
+            display: block;
+        }
+
+        .meme:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px #ffdd00;
+        }
+
+        /* Footer */
+        footer {
+            background: #222;
+            border-top: 3px solid #ffaa00;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #ffcc00;
+        }
+
+        footer a {
+            color: #ffcc00;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+            text-shadow: 0 0 3px #ffaa00;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media(max-width: 600px) {
+            .featured-video iframe {
+                height: 240px;
+            }
+
+            .clip-button {
+                min-width: 140px;
+                font-size: 0.8rem;
+            }
+
+            .memes-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .creators-grid {
+                gap: 15px;
+            }
+
+            .creator-card {
+                width: 110px;
+                padding: 10px;
+            }
+
+            .creator-avatar {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>YusufTV</h1>
+        <div class="tagline">MDR, Lies, and Pure Yusufish</div>
+    </header>
+
+    <main>
+
+        <section class="featured-video" aria-label="Main featured video player">
+            <iframe id="featuredVideo" src="" title="Featured Broadcast"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <h2 id="featuredTitle">Featured Broadcast</h2>
+            <p id="featuredDescription"></p>
+        </section>
+
+        <section class="clip-selector" aria-label="Video clips selector">
+            <h2>Choose a Clip to Play</h2>
+            <div class="clip-list" role="list" id="clipList">
+                <!-- Clips buttons inserted here dynamically -->
+            </div>
+        </section>
+
+        <section class="creators-section" aria-label="Popular content creators">
+            <h2>Popular Creators</h2>
+            <div class="creators-grid" id="creatorsGrid">
+                <!-- Creators inserted dynamically -->
+            </div>
+        </section>
+
+        <section class="rumor-ticker-container" aria-label="Rumor ticker with faction gossip">
+            <div class="rumor-ticker" role="list" aria-live="polite">
+                <span role="listitem">Dark silenced multiple Riyuroxian haters last night. &nbsp; &bull; &nbsp;</span>
+                <span role="listitem">Finnxv is still at large and seeking revenge on the Legion of Liars. &nbsp; &bull;
+                    &nbsp;</span>
+                <span role="listitem">Abcdefas murdered a LEGO DREAMZzz hater. &nbsp; &bull; &nbsp;</span>
+                <span role="listitem">Aimz quit Geometry Dash. &nbsp; &bull; &nbsp;</span>
+
+                <span role="listitem">YusufGPT AI is spreading chaos by confusing factions. &nbsp; &bull; &nbsp;</span>
+            </div>
+        </section>
+
+        <section class="meme-vault" aria-label="Meme vault gallery">
+            <h2>Meme Vault</h2>
+            <div class="memes-grid">
+                <div class="meme" tabindex="0">
+                    <img src="https://yusufyebkairirlarialiariru.github.io/yusuf-eating-chips.png"
+                        alt="When Yusuf trips in the Jewelry Store" />
+                </div>
+                <div class="meme" tabindex="0">
+                    <img src="https://yusufyebkairirlarialiariru.github.io/yusufsjbadventures.png"
+                        alt="Yusuf's Jailbreak Adventures" />
+                </div>
+                <div class="meme" tabindex="0">
+                    <img src="https://yusufyebkairirlarialiariru.github.io/mdrwars.png" alt="MDR Wars" />
+                </div>
+                <div class="meme" tabindex="0">
+                    <img src="https://yusufyebkairirlarialiariru.github.io/liveriyureaction.png"
+                        alt="Live HARAM Reaction" />
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <a href="https://yusufyebkairirlarialiariru.github.io/">main page yeb</a>
+    </footer>
+
+    <script>
+        // Data for creators & their clips
+        const creators = [{
+                name: "Yusuf",
+                avatar: "yusuf-character.png",
+                bio: "EYYYY AM PRO YEBBY!",
+                clips: [{
+                        title: "Jailbreak RANT...",
+                        description: "Eyy breo, Yusuf here with the ULTIMATE Jailbreak meltdown! The game’s falling off, cops are weak, and the servers? Full of NOEBBE glitches! Watch me go full KAIRIRIRI mode as I scream, rage, and unleash the legendary LIARRRRRRRR like never before! If you love chaotic YEBBY energy, wild Yusufish gibberish, and pure Roblox passion—this is the video for you. Don’t forget to like, subscribe, and learn how to speak real Yusufish in the comments! YEB YEB!",
+                        src: "https://www.youtube.com/embed/QEstrewKiuY"
+                    },
+                    {
+                        title: "Yusuf's Jailbreak Adventures | Episode 1",
+                        description: "Eyy breo, welcome to the first episode of my wild Jailbreak journey! Watch me get arrested by a cop (yeah, I screamed LIARRR at the top of my lungs) and then totally FAIL the museum heist because—wait for it—my bag was FULL! Noob moves? Maybe. Hilarious chaos? Definitely. Get ready for crazy Yusufish rants, wild KAIR strikes, and pure YEBBY energy all the way. Smash that like button, subscribe for more madness, and don’t forget to yell LIARRR with me in the comments! YEB YEB!",
+                        src: "https://www.youtube.com/embed/YzZr9vNXECs"
+                    },
+                    {
+                        title: "Learn Yusufish with Yusuf! 🔥 Speak Like a True YEBBY Legend!",
+                        description: "Eyy breo! Ready to level up your language game? Join me, Yusuf, as I break down the ultimate Yusufish words you NEED to dominate Roblox and sound like a true KAIR master. From the explosive LIARRR to the speedy KAIRIRIRI, plus the chaotic MDRRR and the legendary NOEBBE, this lesson’s packed with all the gibberish and power words to take your chat to the next level. Don’t just play the game—speak the language of the YEBBY elite! Hit that like button, subscribe, and drop your own Yusufish phrases in the comments. YEB YEB!",
+                        src: "https://www.youtube.com/embed/7tAPhS-36Es"
+                    }
+                ]
+            },
+            {
+                name: "MDR Studios",
+                avatar: "https://emojiisland.com/cdn/shop/products/Sunglasses_Emoji_be26cc0a-eef9-49e5-8da2-169bb417cc0b_grande.png?v=1571606036",
+                bio: "Your home for epic trailers and original content from the world of MDRJago and more. Dive into thrilling stories, creative projects, and exclusive previews—only on MDR Studios.",
+                clips: [{
+                        title: "Liariririri Compilation",
+                        description: "Get ready to laugh as Yusuf hits us with his iconic liariririri! moments! This hilarious compilation from MDRJago brings together all the funniest lies, twists, and reactions in one wild ride. Don’t miss the chaos—liariririri energy at 100%!",
+                        src: "https://www.youtube.com/embed/kxuiWfYeytc"
+                    },
+                    {
+                        title: "On the Lair",
+                        description: "He’s back with the fire—and he’s on the lair! 💥 Yusuf drops bars and chaos in this unforgettable rap anthem straight from the MDRJago universe. From liariririri to full lyrical fire, On the Lair brings the drama, the flow, and the lies like never before. Don’t believe it? Just listen.",
+                        src: "https://www.youtube.com/embed/-ZnqtaRj_aM"
+                    }
+                ]
+            },
+            {
+                name: "FINNXV",
+                avatar: "finnxv.png",
+                bio: "i didnt stalk namika",
+                clips: [{
+                        title: "MESSAGE TO NAMIKA",
+                        description: "Ah yeah me stalking her social medias without giving any proof that I did, just like her made up lies abt me stalking her friend. Also what made up lies if there's actually proof of what I just said?",
+                        src: "https://www.youtube.com/embed/RTPy_OVPpcE"
+                    },
+                    {
+                        title: "My Deal With Sir Claw",
+                        description: "I sold Sir Claw a Sir Paw trophy for some toys and now my benis hurts at night, durpadurr.",
+                        src: "https://www.youtube.com/embed/4d3nP5NVXHM"
+                    }
+                ]
+            },
+            {
+                name: "Fynn",
+                avatar: "fynn.png",
+                bio: "Fortnite & Valorant addict, denies Yusuf’s e-girl accusations.",
+                clips: [{
+                        title: "My Yusuf Edit",
+                        description: "A hauntingly beautiful reimagining of Yusuf Yeb Kairirlaria Liariru, Fynn’s edit weaves together stark emotion, ethereal pacing, and surreal visual rhythm.",
+                        src: "https://www.youtube.com/embed/HqosCizV8Gc"
+                    }
+                ]
+            },
+            {
+                name: "Tanat",
+                avatar: "tanat.png",
+                bio: "War criminal, currently seeking revenge on Finnxv.",
+                clips: [{
+                        title: "The Minecraft Movie (2024)",
+                        description: "yo i wanna murder someone",
+                        src: "https://www.youtube.com/embed/3AmFxVcfMYk"
+                    },
+                    {
+                        title: "War Crime Compilation",
+                        description: "Eyy breo, welcome to the darkest depths of YusufTV — today we dive into Tanat’s War Crime Compilation! Brace yourself for ruthless moves, merciless strikes, and chaos unleashed like you’ve never seen before. This ain’t no noebbe gameplay — this is pure, unfiltered destruction. Watch as Tanat crushes his foes with zero mercy, leaving nothing but wreckage and screams of LIARRR in his wake. From brutal takedowns to savage traps, this is the ultimate showcase of a true Yusufish warlord’s fury. Ready to witness the legend of Tanat? Then buckle up, scream LIARRR with me, and let the carnage begin!",
+                        src: "https://www.youtube.com/embed/Bcy6sSLblBM"
+                    }
+                ]
+            },
+            {
+                name: "Charles",
+                avatar: "charles.png",
+                bio: "Zarkt the Fraud’s loyal henchman, silencing Riyuroxian enemies.",
+                clips: [{
+                        title: "How to build Zarkt of the Forbidden Five LEGO minifigure from Ninjago Dragons Rising season 3",
+                        description: "Charles in action building Zarkt.",
+                        src: "https://www.youtube.com/embed/PvzuJAJwZOA"
+                    }
+                ]
+            }
+        ];
+
+        const creatorsGrid = document.getElementById('creatorsGrid');
+        const clipList = document.getElementById('clipList');
+        const featuredVideo = document.getElementById('featuredVideo');
+        const featuredTitle = document.getElementById('featuredTitle');
+        const featuredDescription = document.getElementById('featuredDescription');
+
+        let activeCreatorIndex = 0;
+        let activeClipIndex = 0;
+
+        // Load creators into grid
+        function renderCreators() {
+            creatorsGrid.innerHTML = '';
+            creators.forEach((creator, i) => {
+                const card = document.createElement('div');
+                card.className = 'creator-card';
+                card.setAttribute('tabindex', '0');
+                card.setAttribute('role', 'button');
+                card.setAttribute('aria-pressed', i === activeCreatorIndex ? 'true' : 'false');
+                card.innerHTML = `
+        <img src="${creator.avatar}" alt="Portrait of ${creator.name}" class="creator-avatar" />
+        <div class="creator-name">${creator.name}</div>
+      `;
+                card.addEventListener('click', () => selectCreator(i));
+                card.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        selectCreator(i);
+                    }
+                });
+                if (i === activeCreatorIndex) card.classList.add('active');
+                creatorsGrid.appendChild(card);
+            });
+        }
+
+        // Select a creator, update clips and featured video
+        function selectCreator(index) {
+            if (index === activeCreatorIndex) return; // no change
+            activeCreatorIndex = index;
+            activeClipIndex = 0;
+            updateActiveCreatorHighlight();
+            renderClips();
+            loadFeaturedClip();
+        }
+
+        function updateActiveCreatorHighlight() {
+            const cards = creatorsGrid.querySelectorAll('.creator-card');
+            cards.forEach((card, i) => {
+                if (i === activeCreatorIndex) {
+                    card.classList.add('active');
+                    card.setAttribute('aria-pressed', 'true');
+                } else {
+                    card.classList.remove('active');
+                    card.setAttribute('aria-pressed', 'false');
+                }
+            });
+        }
+
+        // Render clips of the active creator
+        function renderClips() {
+            clipList.innerHTML = '';
+            const clips = creators[activeCreatorIndex].clips;
+            clips.forEach((clip, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'clip-button';
+                btn.textContent = clip.title;
+                btn.setAttribute('aria-pressed', i === activeClipIndex ? 'true' : 'false');
+                if (i === activeClipIndex) btn.classList.add('active');
+                btn.addEventListener('click', () => selectClip(i));
+                clipList.appendChild(btn);
+            });
+        }
+
+        // Select a clip from clips list and update featured video
+        function selectClip(index) {
+            if (index === activeClipIndex) return;
+            activeClipIndex = index;
+            updateActiveClipHighlight();
+            loadFeaturedClip();
+        }
+
+        function updateActiveClipHighlight() {
+            const buttons = clipList.querySelectorAll('.clip-button');
+            buttons.forEach((btn, i) => {
+                if (i === activeClipIndex) {
+                    btn.classList.add('active');
+                    btn.setAttribute('aria-pressed', 'true');
+                } else {
+                    btn.classList.remove('active');
+                    btn.setAttribute('aria-pressed', 'false');
+                }
+            });
+        }
+
+        // Load featured video & description from active clip
+        function loadFeaturedClip() {
+            const clip = creators[activeCreatorIndex].clips[activeClipIndex];
+            featuredVideo.src = clip.src;
+            featuredTitle.textContent = `Featured Broadcast: ${clip.title}`;
+            featuredDescription.textContent = clip.description;
+        }
+
+        // Initialize
+        renderCreators();
+        renderClips();
+        loadFeaturedClip();
+    </script>
+
+</body>
+
+</html>
