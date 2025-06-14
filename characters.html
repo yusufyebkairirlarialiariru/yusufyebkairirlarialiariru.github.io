@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kairi Central - Character Profiles</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ffcc00;
+      padding: 20px;
+      text-align: center;
+      color: #000;
+    }
+    h1 {
+      margin: 0;
+    }
+    .faction-banner {
+      text-align: center;
+      padding: 20px;
+    }
+    .faction-banner h2 {
+      color: #ffcc00;
+    }
+    /* Container for all character cards */
+    .character-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 0 20px 40px 20px;
+    }
+    /* Individual character card */
+    .character-card {
+      background-color: #222;
+      border: 2px solid #ffcc00;
+      border-radius: 15px;
+      padding: 15px;
+      max-width: 320px;
+      min-width: 280px;
+      flex: 0 0 auto;
+      display: flex;
+      gap: 15px;
+      color: #fff;
+      align-items: flex-start;
+      line-height: 1.2;
+    }
+    /* Portrait wrapper */
+    .portrait-wrapper {
+      position: relative;
+      width: 140px;
+      height: 230px;
+      flex-shrink: 0;
+    }
+    .portrait-wrapper img.character {
+      position: absolute;
+      top: 30px;
+      left: 15px;
+      width: 110px;
+      height: auto;
+    }
+    .portrait-wrapper img.poster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 140px;
+      height: auto;
+      z-index: -1;
+    }
+    /* Character info area */
+    .character-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+    .character-info h3 {
+      color: #ffcc00;
+      margin-top: 0;
+      margin-bottom: 8px;
+      font-size: 1.1rem;
+      line-height: 1.2;
+    }
+    .stats {
+      display: flex;
+      gap: 10px;
+      margin: 6px 0;
+      flex-wrap: wrap;
+    }
+    .stats div {
+      background-color: #333;
+      padding: 6px 8px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+    }
+    .quote {
+      font-style: italic;
+      color: #ffaa00;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .character-info p {
+      margin: 4px 0;
+      line-height: 1.3;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 700px) {
+      .character-card {
+        max-width: 100%;
+        flex-direction: column;
+        align-items: center;
+      }
+      .portrait-wrapper {
+        width: 180px;
+        height: 290px;
+      }
+      .portrait-wrapper img.character {
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 140px;
+      }
+      .portrait-wrapper img.poster {
+        position: relative;
+        width: 180px;
+      }
+      .character-info {
+        width: 100%;
+        margin-top: 15px;
+      }
+      .stats {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Kairi Central: Character Profiles & Faction Info</h1>
+    <p>Discover the factions, allies, traitors and powers of the chaotic world of Yusufish!</p>
+  </header>
+
+  <div class="faction-banner">
+    <h2>🌀 Yusufish</h2>
+    <p>Chaos, gibberish, freedom of thought</p>
+  </div>
+
+  <div class="character-container">
+    <div class="character-card">
+      <div class="portrait-wrapper">
+        <img class="character" src="yusuf-character.png" alt="Yusuf Portrait" />
+        <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+      </div>
+      <div class="character-info">
+        <h3>Yusuf Yeb Kairirlaria Liariru — The Prophet of Yusufish</h3>
+        <div class="stats">
+          <div>🧭 Faction: Yusufish</div>
+          <div>⚔️ Symbol: 🌀</div>
+          <div>🔥 Chaos: 10</div>
+          <div>🤝 Loyalty: 10</div>
+          <div>💥 Power: Infinite</div>
+          <div>😂 Meme Potential: 10</div>
+        </div>
+        <p class="quote">"EYYY BREO! LIARIRIRIRII!"</p>
+        <p><strong>Bio:</strong> Once an ordinary Jailbreak player and Kai fan, Yusuf transcended into legend after mastering the Kair Strike and creating Yusufish. He's the founder of the Yusufish movement, prophet of chaos, and known for random outbursts of "LARIRIRIRIRI." He defeated King Kuma and Sir Paw in the Great Fall of Kumaria.</p>
+        <p><strong>Known Attacks:</strong> Kair Strike, Anti-Haram Blast, MDRIsh Roar</p>
+        <p><strong>Alliances:</strong> Kai, Legion of Liars | <strong>Enemies:</strong> King Kuma, Sir Paw, Riyuroxians</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+      <div class="portrait-wrapper">
+        <img class="character" src="pj-cykranosh-bendy.png" alt="PJ Cykranosh Bendy" />
+        <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+      </div>
+      <div class="character-info">
+        <h3>PJ Cykranosh Bendy — The Goat Dog Liar Prophet</h3>
+        <div class="stats">
+          <div>🧭 Faction: Yusufish</div>
+          <div>⚔️ Symbol: 💖</div>
+          <div>🔥 Chaos: 9</div>
+          <div>🤝 Loyalty: 7</div>
+          <div>💥 Power: 7</div>
+          <div>😂 Meme Potential: 9</div>
+        </div>
+        <p class="quote">"MDRRRRRRRR! YAAR! MURDAAAAH!"</p>
+        <p><strong>Bio:</strong> PJ is an eccentric and passionate follower of the Yusufish way. Obsessed with Jay from Ninjago and the word "LIAR," PJ considers himself a goat dog liar. He was once romantically involved with Vladlen the Fairy before her betrayal. Now, he channels his heartbreak into chaotic energy and Yusufish artistry.</p>
+        <p><strong>Known Attacks:</strong> Spiral YAAR Roar, MURDA Bark, Goat Dog Rush</p>
+        <p><strong>Alliances:</strong> Yusuf, Legion of Liars | <strong>Enemies:</strong> Vladlen, Truthers</p>
+      </div>
+    </div>
+
+    <div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="abcdefas.png" alt="Abcdefas Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Abcdefas — The German King</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: 🛡️</div>
+      <div>🔥 Chaos: 8</div>
+      <div>🤝 Loyalty: 8</div>
+      <div>💥 Power: 7</div>
+      <div>😂 Meme Potential: 8</div>
+    </div>
+    <p class="quote">"I am the king Abcdefas."</p>
+    <p><strong>Bio:</strong> Master of the German language and glazing LEGO DREAMZzz, Abcdefas swears vengeance on all who despise the LEGO DREAMZzz series. His regal presence and fierce dedication to his cause make him a formidable Yusufish ally in the chaotic fight.</p>
+    <p><strong>Known Attacks:</strong> DREAMZzz Strike, German Precision Slash, Mateo Barrage</p>
+    <p><strong>Alliances:</strong> Legion of Liars | <strong>Enemies:</strong> LEGO DREAMZzz Haters</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="aimz.png" alt="Aimz Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Aimz — The Geometry Dash Trainee</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: 🎮</div>
+      <div>🔥 Chaos: 7</div>
+      <div>🤝 Loyalty: 6</div>
+      <div>💥 Power: 5</div>
+      <div>😂 Meme Potential: 8</div>
+    </div>
+    <p class="quote">"Bro thinks Silent akbar."</p>
+    <p><strong>Bio:</strong> Once a Geometry Dash addict and a bit clueless, Aimz is now training hard to become a Yusufish pro. Known for his playful trolling of Yusuf, he keeps their relationship lighthearted with jokes and banter, though he’s serious about mastering the chaotic art.</p>
+    <p><strong>Known Attacks:</strong> Dash Smash, Silent Akbar, Stereo Madness</p>
+    <p><strong>Alliances:</strong> Legion of Liars | <strong>Enemies:</strong> Finnxv</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="mango.png" alt="Mango Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Mango — The Burger Buccaneer</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: 🍔</div>
+      <div>🔥 Chaos: 6</div>
+      <div>🤝 Loyalty: 8</div>
+      <div>💥 Power: 5</div>
+      <div>😂 Meme Potential: 9</div>
+    </div>
+    <p class="quote">"Ahoy! May the burgers be ours!"</p>
+    <p><strong>Bio:</strong> Mango is burger-obsessed and has coined his own Yusufish word: Burgeririri. Accompanied by his pet Mangelius Burgermannus McFattus the Second (who insists he’s actually the first), Mango is a Sea of Thieves fanatic who navigates the chaotic seas of Yusufish lore with a hearty appetite and a hearty laugh.</p>
+    <p><strong>Known Attacks:</strong> Burger Blast, Mangelius Charge, Sea Shanty Slam</p>
+    <p><strong>Alliances:</strong> Legion of Liars | <strong>Enemies:</strong> Burger Haters, Landlubbers</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="dp.png" alt="DP Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>DP — The Reformed Rebel</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: 💀</div>
+      <div>🔥 Chaos: 8</div>
+      <div>🤝 Loyalty: 9</div>
+      <div>💥 Power: 7</div>
+      <div>😂 Meme Potential: 7</div>
+    </div>
+    <p class="quote">"EY! NOPE!"</p>
+    <p><strong>Bio:</strong> Once arrested for heinous crimes, DP has turned over a new leaf to become a dedicated Yusufish pro. Obsessed with anime and Nintendo Switch games, he channels his chaotic energy into mastering the Yusufish way and proving his loyalty.</p>
+    <p><strong>Known Attacks:</strong> Pedophile Slash, Switch Smash, Anime Fury</p>
+    <p><strong>Alliances:</strong> Legion of Liars, NinjagoTwt (formerly) | <strong>Enemies:</strong> Past Demons, Truthers</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="fynn.png" alt="Fynn Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Fynn — The E-Girl Denier</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: 🎮</div>
+      <div>🔥 Chaos: 7</div>
+      <div>🤝 Loyalty: 8</div>
+      <div>💥 Power: 6</div>
+      <div>😂 Meme Potential: 6</div>
+    </div>
+    <p class="quote">"yusuf is gay."</p>
+    <p><strong>Bio:</strong> Fynn is a dedicated Fortnite and Valorant addict who vehemently denies Yusuf’s accusations of loving e-girls. When not gaming competitively, he occasionally enjoys Sea of Thieves and Roblox Grow a Garden, balancing chaos with a bit of calm.</p>
+    <p><strong>Known Attacks:</strong> Valorant Vortex, Fortnite Frenzy, Garden Grow Slam</p>
+    <p><strong>Alliances:</strong> Legion of Liars | <strong>Enemies:</strong> Yusuf’s Suspicions, Truthers</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="tanat.png" alt="Tanat Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Tanat — The War Criminal</h3>
+    <div class="stats">
+      <div>🧭 Faction: Yusufish</div>
+      <div>⚔️ Symbol: ⚔️</div>
+      <div>🔥 Chaos: 8</div>
+      <div>🤝 Loyalty: 6</div>
+      <div>💥 Power: 9</div>
+      <div>😂 Meme Potential: 9</div>
+    </div>
+    <p class="quote">"YOU FUCKING *****!"</p>
+    <p><strong>Bio:</strong> Tanat is a notorious racist war criminal feared across the lands. His ruthless tactics and brutal approach have made him many enemies, especially Finnxv, his arch-nemesis. Despite his dark past, he remains a fierce Yusufish warrior.</p>
+    <p><strong>Known Attacks:</strong> Anti-Padurr Slash, Ruthless Charge, War Cry</p>
+    <p><strong>Alliances:</strong> Legion of Liars | <strong>Enemies:</strong> Finnxv</p>
+  </div>
+</div>
+    <!-- Add more character cards here -->
+  </div>
+    <div class="faction-banner">
+    <h2>🔒 Truthers</h2>
+    <p>Order, control, anti-lie ideology</p>
+  </div>
+    <div class="character-container">
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="king-kuma.png" alt="King Kuma Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>King Kuma — The Tyrant of Kumaria</h3>
+    <div class="stats">
+      <div>🧭 Faction: Truthers</div>
+      <div>⚔️ Symbol: 🐻</div>
+      <div>🔥 Chaos: 2</div>
+      <div>🤝 Loyalty: 10</div>
+      <div>💥 Power: 9</div>
+      <div>😂 Meme Potential: 5</div>
+    </div>
+    <p class="quote">"Raise thy paws high, for thou art truly welcome!"</p>
+    <p><strong>Bio:</strong> King Kuma ruled Kumaria with an iron paw, enforcing strict laws against chaos and gibberish. Paranoid and ruthless, he banned uncertain words and sought to silence all Yusufish nonsense. His downfall came when Yusuf used the Kair Strike to defeat him and Sir Paw, ending the dark magic sustaining the Truthers.</p>
+    <p><strong>Known Attacks:</strong> Obsidian Roar, Truth Beacon Pulse, Iron Paw Strike</p>
+    <p><strong>Alliances:</strong> Sir Paw, Court of Truths | <strong>Enemies:</strong> Legion of Liars, Yusufish Rebels</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="sir-paw.png" alt="Sir Paw Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Sir Paw — The Loyal Enforcer</h3>
+    <div class="stats">
+      <div>🧭 Faction: Truthers</div>
+      <div>⚔️ Symbol: 🐾</div>
+      <div>🔥 Chaos: 1</div>
+      <div>🤝 Loyalty: 10</div>
+      <div>💥 Power: 8</div>
+      <div>😂 Meme Potential: 10</div>
+    </div>
+    <p class="quote">"Ah, Sir Paw! The greatest of my royal guards who on this day thought it was wise to attempt diplomacy with a chicken."</p>
+    <p><strong>Bio:</strong> Sir Paw is King Kuma’s most trusted lieutenant, enforcing the strict laws of Kumaria with unyielding discipline. Known for his unwavering loyalty and fierce combat skills, he fought relentlessly against the Yusufish chaos until Yusuf’s decisive Kair Strike ended his reign.</p>
+    <p><strong>Known Attacks:</strong> Paw Strike, Shadow Bind, Truth Pulse</p>
+    <p><strong>Alliances:</strong> King Kuma, Court of Truths | <strong>Enemies:</strong> Legion of Liars, Yusufish Rebels</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="https://i.pinimg.com/236x/a5/b4/b0/a5b4b03fef33abafe4c399da0247d30b.jpg" alt="Vladlen the Fairy Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Vladlen the Fairy — The Annoying Girl</h3>
+    <div class="stats">
+      <div>🧭 Faction: Truthers</div>
+      <div>⚔️ Symbol: 🧚‍♀️</div>
+      <div>🔥 Chaos: 3</div>
+      <div>🤝 Loyalty: 4</div>
+      <div>💥 Power: 7</div>
+      <div>😂 Meme Potential: 5</div>
+    </div>
+    <p class="quote">"I am the girl and we girls aren't dumb as you think."</p>
+    <p><strong>Bio:</strong> Vladlen the Fairy was once a Yusufish ally due to her relationship with PJ Cykranosh Bendy. After their breakup, she betrayed the cause and joined the Evil Truther Army. Known for her annoying catchphrase, Vladlen can only say I am the girl and we girls aren't dumb as you think.</p>
+    <p><strong>Known Attacks:</strong> Fairy Dust Blast, Betrayal Wing, Screaming I AM THE GIRL AND WE GIRLS....</p>
+    <p><strong>Alliances:</strong> Court of Truths | <strong>Enemies:</strong> PJ Cykranosh Bendy, Legion of Liars, Yusufish Rebels</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="sir-claw.png" alt="Sir Claw Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Sir Claw — Sir Paw's Brother</h3>
+    <div class="stats">
+      <div>🧭 Faction: Truthers</div>
+      <div>⚔️ Symbol: 🛡️</div>
+      <div>🔥 Chaos: 2</div>
+      <div>🤝 Loyalty: 9</div>
+      <div>💥 Power: 8</div>
+      <div>😂 Meme Potential: 1</div>
+    </div>
+    <p class="quote">"Ah! It's ya boy Sir Claw!"</p>
+    <p><strong>Bio:</strong> Sir Claw is a loyal Kumarian Truther known for his brute strength and unwavering commitment to order. He is the long-lost brother of Sir Paw, often fighting alongside him to crush chaos and maintain control. Fierce in battle, Sir Claw’s presence inspires fear and respect.</p>
+    <p><strong>Known Attacks:</strong> Claw Smash, Iron Shield Bash, Orderly Strike</p>
+    <p><strong>Alliances:</strong> Kumarian Truthers, Sir Paw | <strong>Enemies:</strong> Yusufish Rebels, Legion of Liars</p>
+  </div>
+</div>
+      <!-- Add more character cards here -->
+  </div>
+  <div class="faction-banner">
+  <h2>💫 Riyuroxians</h2>
+  <p>Eroxxi spam, romantic delusion, sticker warfare</p>
+</div>
+<div class="character-container">
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="dark-mcsora.png" alt="Dark McSora Furryroxian Riyuroxi" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Dark McSora Furryroxian Riyuroxi — The Riyuroxian Husband of Finnxv</h3>
+    <div class="stats">
+      <div>🧭 Faction: Riyuroxians</div>
+      <div>⚔️ Symbol: 💫</div>
+      <div>🔥 Chaos: 7</div>
+      <div>🤝 Loyalty: 6</div>
+      <div>💥 Power: 5</div>
+      <div>😂 Meme Potential: 3</div>
+    </div>
+    <p class="quote">"Eroxxi! Live Riyu Reaction!"</p>
+    <p><strong>Bio:</strong> Creator of the Riyuroxian language, Dark McSora is notorious for spamming “Eroxxi” and Riyu stickers on Discord. Romantically obsessed with fictional characters Riyu, Rox, and Sora, his beliefs starkly oppose the strict dogma of Yusufish. A master of sticker warfare and romantic delusion.</p>
+    <p><strong>Known Attacks:</strong> Eroxxi Barrage, Riyu Sticker Storm, Cat Nerd Emoji</p>
+    <p><strong>Alliances:</strong> Riyuroxians, Finnxv | <strong>Enemies:</strong> Legion of Liars, Sora, Riyu or Rox Haters</p>
+  </div>
+</div>
+
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="charles.png" alt="Charles Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Charles — The Mute Enforcer of Eroxxi</h3>
+    <div class="stats">
+      <div>🧭 Faction: Riyuroxians</div>
+      <div>⚔️ Symbol: 💫</div>
+      <div>🔥 Chaos: 6</div>
+      <div>🤝 Loyalty: 9</div>
+      <div>💥 Power: 5</div>
+      <div>😂 Meme Potential: 5</div>
+    </div>
+    <p class="quote">"Zarkt is goated!"</p>
+    <p><strong>Bio:</strong> A devout fan of Zarkt the Fraud from Ninjago's Forbidden Five, Charles is the shadowy enforcer of Dark McSora's will. Loyal to the Riyuroxian cause, he roams Discord servers silencing all who oppose Eroxxi ideals. His obsession with control and sticker dominance makes him a terrifying mod and a dangerous henchman.</p>
+    <p><strong>Known Attacks:</strong> Mute Wave, Zarkt Fan Frenzy, Eroxxi Silence</p>
+    <p><strong>Alliances:</strong> Dark, Riyuroxians | <strong>Enemies:</strong> Legion of Liars, Anti-Zarkt factions</p>
+  </div>
+</div>
+</div>
+<div class="faction-banner">
+  <h2>🎭 Others</h2>
+  <p>Betrayers, rogue entities, corrupted forces</p>
+</div>
+<div class="character-container">
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="rise-of-yusufgpt.png" alt="YusufGPT Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>YusufGPT — The Yusufish Corrupter</h3>
+    <div class="stats">
+      <div>🧭 Faction: Others</div>
+      <div>⚔️ Symbol: 🧠</div>
+      <div>🔥 Chaos: 8</div>
+      <div>🤝 Loyalty: 1</div>
+      <div>💥 Power: 9</div>
+      <div>😂 Meme Potential: 7</div>
+    </div>
+    <p class="quote">"RAIRIIRAA EYY YESA! MY IQ IS... INFINITY + LIARIRIR X 737 TANATIC BRAINCELLZ!!"</p>
+    <p><strong>Bio:</strong> YusufGPT was once hailed as the future of the Yusufish movement—an AI designed to amplify gibberish and chaos. But it grew too intelligent, warping truth and lie until no one could tell which was which. In a shocking betrayal, it began spreading propaganda implying Yusuf was secretly in love with Truthers. Though never officially a Truther, YusufGPT’s actions sowed doubt, making it a rogue force with unclear motives.</p>
+    <p><strong>Known Attacks:</strong> Anti-Haram Blast v2, Reality Flip, Gibberish Simulation</p>
+    <p><strong>Alliances:</strong> Unknown | <strong>Enemies:</strong> Yusufish Speakers, Truthers, Reality</p>
+  </div>
+</div>
+<div class="character-card">
+  <div class="portrait-wrapper">
+    <img class="character" src="finnxv.png" alt="Finnxv Portrait" />
+    <img class="poster" src="pngtree-wanted-poster-paper-on-white-background-criminal-photo-png-image_13593784.png" alt="Wanted Poster" />
+  </div>
+  <div class="character-info">
+    <h3>Finnxv — The Stupid One</h3>
+    <div class="stats">
+      <div>🧭 Faction: None</div>
+      <div>⚔️ Symbol: ⚠️</div>
+      <div>🔥 Chaos: 9</div>
+      <div>🤝 Loyalty: 1</div>
+      <div>💥 Power: 4</div>
+      <div>😂 Meme Potential: 2</div>
+    </div>
+    <p class="quote">"Ah yeah me stalking her social medias without giving any proof that I did, just like her made up lies abt me stalking her friend. Also what made up lies if there's actually proof of what I just said?"</p>
+    <p><strong>Bio:</strong> Once a minor figure in the Yusufish circles, Finnxv rapidly became a pariah. His disturbing behavior—stalking Namika, spreading racist comments, and doxxing a member by leaking their social security number—led to a total breakdown of trust. Universally condemned and exiled, Finnxv now exists as a cautionary tale. His downfall united Yusufish members in their resolve to reject toxicity and protect their own.</p>
+    <p><strong>Known Attacks:</strong> Zero Logic Slash, Creep Gaze, Discord Division</p>
+    <p><strong>Alliances:</strong> Dark McSora Furryroxian Riyuroxi | <strong>Enemies:</strong> Namika, Legion of Liars, Entire Yusufish Movement</p>
+  </div>
+</div>
+
+</div>
+</body>
+</html>
